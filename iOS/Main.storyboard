@@ -125,7 +125,7 @@
                                 <rect key="frame" x="0.0" y="24" width="375" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZEW-wz-LCx" id="hRw-ER-YXT">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="85"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="84"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MetaWear" translatesAutoresizingMaskIntoConstraints="NO" id="nSe-fd-aTp">
@@ -163,7 +163,7 @@
                                 <rect key="frame" x="0.0" y="109" width="375" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nbx-hf-jjn" id="Cji-TJ-CG1">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="85"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="84"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a MetaWear device to get started!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlG-en-AkV">
@@ -211,11 +211,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XDI-3T-IxA">
-                                <rect key="frame" x="-3" y="73" width="380" height="520"/>
+                                <rect key="frame" x="-3" y="73" width="380" height="400"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sFa-mE-jPj" userLabel="Felicity Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="380" height="520"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="380" height="400"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUs-1D-50Y">
                                                 <rect key="frame" x="0.0" y="0.0" width="380" height="50"/>
@@ -326,10 +326,16 @@
                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFb-L3-ZcU">
                                                         <rect key="frame" x="0.0" y="0.0" width="190" height="50"/>
                                                         <state key="normal" title="Start Monitoring"/>
+                                                        <connections>
+                                                            <action selector="StartMonitoring:" destination="XFA-76-WTO" eventType="touchUpInside" id="mMW-NI-KSg"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZL-x5-j3s" userLabel="Stop Monitoring">
                                                         <rect key="frame" x="190" y="0.0" width="190" height="50"/>
                                                         <state key="normal" title="Stop Monitoring"/>
+                                                        <connections>
+                                                            <action selector="StopMonitoring:" destination="XFA-76-WTO" eventType="touchUpInside" id="KHJ-NV-1dp"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -343,10 +349,16 @@
                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1u-TE-yjq" userLabel="Start Streaming">
                                                         <rect key="frame" x="0.0" y="0.0" width="190" height="50"/>
                                                         <state key="normal" title="Start Streaming"/>
+                                                        <connections>
+                                                            <action selector="StartStreaming:" destination="XFA-76-WTO" eventType="touchUpInside" id="qQy-m3-0Lh"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTf-Um-qgT" userLabel="Stop Streaming">
                                                         <rect key="frame" x="190" y="0.0" width="190" height="50"/>
                                                         <state key="normal" title="Stop Streaming"/>
+                                                        <connections>
+                                                            <action selector="StopStreaming:" destination="XFA-76-WTO" eventType="touchUpInside" id="AhX-GZ-b2O"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -354,14 +366,6 @@
                                                     <constraint firstAttribute="height" constant="50" id="e04-8T-PWk"/>
                                                 </constraints>
                                             </stackView>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UwY-zq-0pb" userLabel="Accelerometer Graph View" customClass="APLGraphView">
-                                                <rect key="frame" x="0.0" y="400" width="380" height="120"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="380" id="SVD-34-sId"/>
-                                                    <constraint firstAttribute="height" constant="120" id="jj7-HI-211"/>
-                                                </constraints>
-                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.58742085129999999" blue="0.81673515839999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -381,6 +385,16 @@
                         <color key="backgroundColor" red="1" green="0.58742085134067423" blue="0.81673515843690092" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Device" id="zSU-Fp-fTT"/>
+                    <connections>
+                        <outlet property="HumidityLabel" destination="ERA-ZP-0VV" id="eZ2-9h-6ud"/>
+                        <outlet property="LightLabel" destination="ZXJ-wY-lhS" id="4Jz-Nr-oM5"/>
+                        <outlet property="StartMonitoringButton" destination="PFb-L3-ZcU" id="KJp-T2-uU9"/>
+                        <outlet property="StartStreamingButton" destination="e1u-TE-yjq" id="IJV-Zx-m1y"/>
+                        <outlet property="StopMonitoringButton" destination="IZL-x5-j3s" id="Ake-9W-gaN"/>
+                        <outlet property="StopStreamingButton" destination="lTf-Um-qgT" id="nLE-DC-tHK"/>
+                        <outlet property="TemperatureLabel" destination="fHf-qE-BDn" id="cvx-U0-RQM"/>
+                        <outlet property="deviceStatus" destination="vUs-1D-50Y" id="yrQ-is-jj2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ozi-iQ-HNv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -388,13 +402,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Humidity" width="64" height="64"/>
-        <image name="Light" width="64" height="64"/>
+        <image name="Humidity" width="123" height="309"/>
+        <image name="Light" width="319" height="376"/>
         <image name="MetaWear" width="157" height="157"/>
-        <image name="Temperature" width="64" height="64"/>
-        <image name="baby_crying" width="64" height="64"/>
-        <image name="baby_normal" width="64" height="64"/>
-        <image name="baby_sleeping" width="64" height="64"/>
+        <image name="Temperature" width="150" height="409"/>
+        <image name="baby_crying" width="195" height="171"/>
+        <image name="baby_normal" width="195" height="171"/>
+        <image name="baby_sleeping" width="202" height="197"/>
         <image name="wifi_d1" width="64" height="64"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
