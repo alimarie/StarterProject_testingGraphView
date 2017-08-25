@@ -29,10 +29,14 @@ class DeviceViewController: UIViewController {
     var accelerometerBMI160Data = [MBLAccelerometerData]()
     
     // GRAPH VIEWS
-    //@IBOutlet weak var AccelerometerGraphView: APLGraphView!
+ //   @IBOutlet weak var AccelerometerGraphView: APLGraphView!
     
     // DEVICES
     var device: MBLMetaWear!
+    
+    // STREAMING
+    var streamingEvents: Set<NSObject> = [] // Can't use proper type due to compiler seg fault
+    
     
     
     
@@ -82,7 +86,7 @@ class DeviceViewController: UIViewController {
         let accelerometerBMI160 = self.device.accelerometer as! MBLAccelerometerBMI160
         
         accelerometerBMI160.fullScaleRange = .range2G
-        //self.accelerometerGraphView.fullScale = 2
+     //   self.AccelerometerGraphView.fullScale = 2
         accelerometerBMI160.sampleFrequency = 50
     }
     
@@ -111,10 +115,14 @@ class DeviceViewController: UIViewController {
         StartMonitoringButton.isEnabled = true
         StopMonitoringButton.isEnabled = false
         device.led?.setLEDOnAsync(false, withOptions: 1)
-        
-        //device.accelerometer!.dataReadyEvent.stopLoggingAsync()
        
-      
+        device.accelerometer!.dataReadyEvent.downloadLogAndStopLoggingAsync(true)
+        
+        accelerometerBMI160Data = [MBLAccelerometerData]()
+        for obj in self.accelerometerBMI160Data {
+            print("x: ", obj.x, "y: ", obj.y, "z: ", obj.z)
+   //         self.AccelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
+        }
         
             //-----  ACCELEROMETER -----
   /*          let hud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
@@ -149,10 +157,35 @@ class DeviceViewController: UIViewController {
     
     @IBAction func StartStreaming(_ sender: Any) {
         print("Start Streaming tapped")
+        
+        StartStreamingButton.isEnabled = false
+        StopStreamingButton.isEnabled = true
+        device.led?.setLEDColorAsync(UIColor.cyan, withIntensity: 1.0)
+        
+        // ----- ACCELEROMETER -----
+        updateAccelerometerBMI160Settings()
+        var array_A = [MBLAccelerometerData]() /* capacity: 1000 */
+        accelerometerBMI160Data = array_A
+        streamingEvents.insert(device.accelerometer!.dataReadyEvent)
+        device.accelerometer!.dataReadyEvent.startNotificationsAsync { (obj, error) in
+            if let obj = obj {
+              //  self.accelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
+                array_A.append(obj)
+            }
+        }
     }
     
     @IBAction func StopStreaming(_ sender: Any) {
         print("Stop Streaming tapped")
+        
+        StartStreamingButton.isEnabled = true
+        StopStreamingButton.isEnabled = false
+        device.led?.setLEDOnAsync(false, withOptions: 1)
+        
+        // ----- accelerometer -----
+        streamingEvents.remove(device.accelerometer!.dataReadyEvent)
+        device.accelerometer!.dataReadyEvent.stopNotificationsAsync()
+        
     }
     
     
