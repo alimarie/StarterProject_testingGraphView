@@ -115,17 +115,19 @@ class DeviceViewController: UIViewController {
         StartMonitoringButton.isEnabled = true
         StopMonitoringButton.isEnabled = false
         device.led?.setLEDOnAsync(false, withOptions: 1)
-       
+        
+       // device.accelerometer!.dataReadyEvent.downloadLogAndStopLoggingAsync(true)
         device.accelerometer!.dataReadyEvent.downloadLogAndStopLoggingAsync(true)
-        
-        accelerometerBMI160Data = [MBLAccelerometerData]()
-        for obj in self.accelerometerBMI160Data {
-            print("x: ", obj.x, "y: ", obj.y, "z: ", obj.z)
-   //         self.AccelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
-        }
-        
+            .success { array in self.accelerometerBMI160Data = array as! [MBLAccelerometerData]
+                for obj in self.accelerometerBMI160Data {
+                  //  self.accelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
+                    print("x: ", obj.x, ", y: ", obj.y, ", z: ", obj.z)
+                }
+            }
+
+
             //-----  ACCELEROMETER -----
-  /*          let hud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
+  /*        let hud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
             hud.mode = .determinateHorizontalBar
             hud.label.text = "Downloading..."
             device.accelerometer!.dataReadyEvent.downloadLogAndStopLoggingAsync(true) { number in
@@ -146,7 +148,7 @@ class DeviceViewController: UIViewController {
                 }.failure { error in
                     self.connectDevice(false)
                     hud.hide(animated: true)
-            }
+                }
             
      
 */
@@ -171,6 +173,7 @@ class DeviceViewController: UIViewController {
             if let obj = obj {
               //  self.accelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
                 array_A.append(obj)
+              //  print("x: ", obj.x, ", y: ", obj.y, ", z: ", obj.z)
             }
         }
     }
