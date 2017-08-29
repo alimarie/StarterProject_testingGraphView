@@ -50,6 +50,8 @@ class DeviceViewController: UIViewController {
             self.device.led?.flashColorAsync(UIColor.green, withIntensity: 1.0, numberOfFlashes: 3)
             NSLog("We are connected")
         }
+        
+        device.name = "Anders"  // **************
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -117,14 +119,24 @@ class DeviceViewController: UIViewController {
         device.led?.setLEDOnAsync(false, withOptions: 1)
         
        // device.accelerometer!.dataReadyEvent.downloadLogAndStopLoggingAsync(true)
-        device.accelerometer!.dataReadyEvent.downloadLogAndStopLoggingAsync(true)
+/*          device.accelerometer!.dataReadyEvent.downloadLogAndStopLoggingAsync(true)
             .success { array in self.accelerometerBMI160Data = array as! [MBLAccelerometerData]
                 for obj in self.accelerometerBMI160Data {
                   //  self.accelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
                     print("x: ", obj.x, ", y: ", obj.y, ", z: ", obj.z)
                 }
             }
-
+*/
+        
+        device.accelerometer!.dataReadyEvent.downloadLogAndStopLoggingAsync(true, progressHandler: { number in
+            // Update progress bar, as this can take anywhere from one minute
+            // to a couple hours to download a full log
+        }).success({ result in
+            // array contains all the log entries
+            for entry in result {
+                print("Entry: " + String(describing: entry))
+            }
+        })
 
             //-----  ACCELEROMETER -----
   /*        let hud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
@@ -173,7 +185,7 @@ class DeviceViewController: UIViewController {
             if let obj = obj {
               //  self.accelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
                 array_A.append(obj)
-              //  print("x: ", obj.x, ", y: ", obj.y, ", z: ", obj.z)
+                print("x: ", obj.x, ", y: ", obj.y, ", z: ", obj.z)
             }
         }
     }
