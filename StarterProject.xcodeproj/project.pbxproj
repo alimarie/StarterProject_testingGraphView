@@ -25,6 +25,8 @@
 		402973871DB839ED00EC8C32 /* DeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402973811DB839EA00EC8C32 /* DeviceViewController.swift */; };
 		402973881DB839ED00EC8C32 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402973821DB839EA00EC8C32 /* MainTableViewController.swift */; };
 		A74CC4E904D4261827DB3639 /* Pods_Starter_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CC4717E50B1C51696459B4 /* Pods_Starter_macOS.framework */; };
+		AFC47C8E1F55AD3E00E18A1A /* AccelerometerFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC47C8B1F55AD3E00E18A1A /* AccelerometerFilter.m */; };
+		AFC47C8F1F55AD3E00E18A1A /* APLGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC47C8D1F55AD3E00E18A1A /* APLGraphView.m */; };
 		BC31A9FBED54BD932058B42E /* Pods_Starter_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B810285FECA2430C1FAEF3F /* Pods_Starter_tvOS.framework */; };
 		E829A8A800A7AFC5A4C5DA7A /* Pods_Starter_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C3D37560DD979815A53DF1B /* Pods_Starter_iOS.framework */; };
 /* End PBXBuildFile section */
@@ -55,6 +57,11 @@
 		402973821DB839EA00EC8C32 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		4B810285FECA2430C1FAEF3F /* Pods_Starter_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Starter_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5831B849867AF94CA117AB75 /* Pods-Starter-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starter-macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Starter-macOS/Pods-Starter-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		AFC47C891F55AD3D00E18A1A /* iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "iOS-Bridging-Header.h"; path = "../iOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		AFC47C8A1F55AD3E00E18A1A /* AccelerometerFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerometerFilter.h; sourceTree = "<group>"; };
+		AFC47C8B1F55AD3E00E18A1A /* AccelerometerFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerometerFilter.m; sourceTree = "<group>"; };
+		AFC47C8C1F55AD3E00E18A1A /* APLGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLGraphView.h; sourceTree = "<group>"; };
+		AFC47C8D1F55AD3E00E18A1A /* APLGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLGraphView.m; sourceTree = "<group>"; };
 		BC9E019C266AD9823B5E877D /* Pods-Starter-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starter-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Starter-tvOS/Pods-Starter-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		F3CC4717E50B1C51696459B4 /* Pods_Starter_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Starter_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -100,6 +107,7 @@
 		4029731F1DB81F5A00EC8C32 = {
 			isa = PBXGroup;
 			children = (
+				AFC47C901F55AD5800E18A1A /* Accelerometer */,
 				402973241DB81F5A00EC8C32 /* Shared */,
 				4029732F1DB81F5B00EC8C32 /* iOS */,
 				402973401DB81F5B00EC8C32 /* tvOS */,
@@ -118,6 +126,7 @@
 				402973821DB839EA00EC8C32 /* MainTableViewController.swift */,
 				402973271DB81F5A00EC8C32 /* GameScene.swift */,
 				4029737D1DB839AF00EC8C32 /* ScanTableViewController.swift */,
+				AFC47C891F55AD3D00E18A1A /* iOS-Bridging-Header.h */,
 				402973281DB81F5A00EC8C32 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -174,6 +183,17 @@
 				BC9E019C266AD9823B5E877D /* Pods-Starter-tvOS.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AFC47C901F55AD5800E18A1A /* Accelerometer */ = {
+			isa = PBXGroup;
+			children = (
+				AFC47C8A1F55AD3E00E18A1A /* AccelerometerFilter.h */,
+				AFC47C8B1F55AD3E00E18A1A /* AccelerometerFilter.m */,
+				AFC47C8C1F55AD3E00E18A1A /* APLGraphView.h */,
+				AFC47C8D1F55AD3E00E18A1A /* APLGraphView.m */,
+			);
+			name = Accelerometer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +272,7 @@
 					4029732C1DB81F5A00EC8C32 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = A3WQU7369H;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					4029733E1DB81F5B00EC8C32 = {
@@ -464,6 +485,8 @@
 				402973831DB839EA00EC8C32 /* AppDelegate.swift in Sources */,
 				4029737E1DB839AF00EC8C32 /* ScanTableViewController.swift in Sources */,
 				402973841DB839EA00EC8C32 /* DeviceViewController.swift in Sources */,
+				AFC47C8E1F55AD3E00E18A1A /* AccelerometerFilter.m in Sources */,
+				AFC47C8F1F55AD3E00E18A1A /* APLGraphView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,6 +625,7 @@
 			baseConfigurationReference = 2C1A4E13D173813A39F97132 /* Pods-Starter-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = A3WQU7369H;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -610,6 +634,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.felicityThesis.StarterProject;
 				PRODUCT_NAME = StarterProject;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "iOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -619,6 +646,7 @@
 			baseConfigurationReference = 2573A1969C83186B79E292E1 /* Pods-Starter-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = A3WQU7369H;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -627,6 +655,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.felicityThesis.StarterProject;
 				PRODUCT_NAME = StarterProject;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "iOS-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
