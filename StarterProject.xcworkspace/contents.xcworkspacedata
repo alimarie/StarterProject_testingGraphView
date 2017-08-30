@@ -5,6 +5,9 @@
       location = "group:StarterProject.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:iOS-Bridging-Header.h">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

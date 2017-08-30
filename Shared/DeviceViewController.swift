@@ -29,7 +29,7 @@ class DeviceViewController: UIViewController {
     var accelerometerBMI160Data = [MBLAccelerometerData]()
     
     // GRAPH VIEWS
- //   @IBOutlet weak var AccelerometerGraphView: APLGraphView!
+    @IBOutlet weak var AccelerometerGraphView: APLGraphView!
     
     // DEVICES
     var device: MBLMetaWear!
@@ -88,7 +88,7 @@ class DeviceViewController: UIViewController {
         let accelerometerBMI160 = self.device.accelerometer as! MBLAccelerometerBMI160
         
         accelerometerBMI160.fullScaleRange = .range2G
-     //   self.AccelerometerGraphView.fullScale = 2
+        self.AccelerometerGraphView.fullScale = 2
         accelerometerBMI160.sampleFrequency = 50
     }
     
@@ -122,7 +122,7 @@ class DeviceViewController: UIViewController {
 /*          device.accelerometer!.dataReadyEvent.downloadLogAndStopLoggingAsync(true)
             .success { array in self.accelerometerBMI160Data = array as! [MBLAccelerometerData]
                 for obj in self.accelerometerBMI160Data {
-                  //  self.accelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
+                  //  self.AccelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
                     print("x: ", obj.x, ", y: ", obj.y, ", z: ", obj.z)
                 }
             }
@@ -161,11 +161,7 @@ class DeviceViewController: UIViewController {
                     self.connectDevice(false)
                     hud.hide(animated: true)
                 }
-            
-     
 */
-        
-        
     }
     
     
@@ -183,9 +179,9 @@ class DeviceViewController: UIViewController {
         streamingEvents.insert(device.accelerometer!.dataReadyEvent)
         device.accelerometer!.dataReadyEvent.startNotificationsAsync { (obj, error) in
             if let obj = obj {
-              //  self.accelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
+                self.AccelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
                 array_A.append(obj)
-                print("x: ", obj.x, ", y: ", obj.y, ", z: ", obj.z)
+                //print("x: ", obj.x, ", y: ", obj.y, ", z: ", obj.z)
             }
         }
     }
