@@ -8,15 +8,21 @@
 import UIKit
 import MetaWear
 import MBProgressHUD
+import CoreBluetooth
 
 protocol ScanTableViewControllerDelegate {
     func scanTableViewController(_ controller: ScanTableViewController, didSelectDevice device: MBLMetaWear)
 }
 
-class ScanTableViewController: UITableViewController {
+class ScanTableViewController: UITableViewController, CBPeripheralDelegate  {
     var delegate: ScanTableViewControllerDelegate?
     var devices: [MBLMetaWear]?
     var selected: MBLMetaWear?
+    
+    // TESTING SCALE ADD IN *******
+    var manager:CBCentralManager? = nil
+    let BLEService = "1804"
+    // ****************************
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
@@ -25,6 +31,10 @@ class ScanTableViewController: UITableViewController {
             self.devices = array
             self.tableView.reloadData()
         }
+        
+        //  TESTING SCALE ADD_IN *********
+        manager?.scanForPeripherals(withServices: [CBUUID.init(string: BLEService)], options: nil)
+        // *******************************
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -114,4 +124,24 @@ class ScanTableViewController: UITableViewController {
             }
         }
     }
+    
+    // ************* BLE imported functions *************
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+        
+        for service in peripheral.services! {
+            
+            print("Service found with UUID: " + service.uuid.uuidString)
+           
+            if (service.uuid.uuidString == "1804") {
+                peripheral.discoverCharacteristics(nil, for: service)
+            }
+            
+            if (service.uuid.uuidString == "0000FA00-494C-4F47-4943-544543480000") {
+                peripheral.discoverCharacteristics(nil, for: service)
+            }
+            
+        }
+    }
+    // *************************************************
+    
 }
