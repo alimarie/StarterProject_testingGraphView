@@ -88,7 +88,7 @@ class DeviceViewController: UIViewController {
         let accelerometerBMI160 = self.device.accelerometer as! MBLAccelerometerBMI160
         
         accelerometerBMI160.fullScaleRange = .range2G
-     //   self.AccelerometerGraphView.fullScale = 2
+        self.AccelerometerGraphView.fullScale = 2
         accelerometerBMI160.sampleFrequency = 50
     }
     
@@ -181,7 +181,7 @@ class DeviceViewController: UIViewController {
             if let obj = obj {
                 self.AccelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
                 array_A.append(obj)
-                print("x: ", obj.x, ", y: ", obj.y, ", z: ", obj.z)
+                //print("x: ", obj.x, ", y: ", obj.y, ", z: ", obj.z)
             }
         }
     }
