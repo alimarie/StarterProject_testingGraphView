@@ -8,12 +8,15 @@
 import UIKit
 import MetaWear
 import MBProgressHUD
+// TESTING SCALE ADD IN *******
 import CoreBluetooth
+// ****************************
 
 protocol ScanTableViewControllerDelegate {
     func scanTableViewController(_ controller: ScanTableViewController, didSelectDevice device: MBLMetaWear)
 }
 
+//class ScanTableViewController: UITableViewController
 class ScanTableViewController: UITableViewController, CBPeripheralDelegate  {
     var delegate: ScanTableViewControllerDelegate?
     var devices: [MBLMetaWear]?
