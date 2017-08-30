@@ -118,50 +118,19 @@ class DeviceViewController: UIViewController {
         StopMonitoringButton.isEnabled = false
         device.led?.setLEDOnAsync(false, withOptions: 1)
         
-       // device.accelerometer!.dataReadyEvent.downloadLogAndStopLoggingAsync(true)
-/*          device.accelerometer!.dataReadyEvent.downloadLogAndStopLoggingAsync(true)
-            .success { array in self.accelerometerBMI160Data = array as! [MBLAccelerometerData]
-                for obj in self.accelerometerBMI160Data {
-                  //  self.AccelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
-                    print("x: ", obj.x, ", y: ", obj.y, ", z: ", obj.z)
-                }
-            }
-*/
         
         device.accelerometer!.dataReadyEvent.downloadLogAndStopLoggingAsync(true, progressHandler: { number in
             // Update progress bar, as this can take anywhere from one minute
             // to a couple hours to download a full log
-        }).success({ result in
+        }).success({ array in self.accelerometerBMI160Data = array as! [MBLAccelerometerData]
             // array contains all the log entries
-            for entry in result {
-                print("Entry: " + String(describing: entry))
+            for obj in self.accelerometerBMI160Data {
+                print("Entry: " + String(describing: obj))
+                self.AccelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
             }
         })
 
-            //-----  ACCELEROMETER -----
-  /*        let hud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
-            hud.mode = .determinateHorizontalBar
-            hud.label.text = "Downloading..."
-            device.accelerometer!.dataReadyEvent.downloadLogAndStopLoggingAsync(true) { number in
-                hud.progress = number
-                }.success { array in
-                    self.accelerometerBMI160Data = array as! [MBLAccelerometerData]
-                    for obj in self.accelerometerBMI160Data {
-                        self.accelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
-                    }
-                    hud.mode = .indeterminate
-                    hud.label.text = "Clearing Log..."
-                    self.logCleanup { error in
-                        hud.hide(animated: true)
-                        if error != nil {
-                            self.connectDevice(false)
-                        }
-                    }
-                }.failure { error in
-                    self.connectDevice(false)
-                    hud.hide(animated: true)
-                }
-*/
+
     }
     
     
