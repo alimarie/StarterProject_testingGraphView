@@ -23,7 +23,8 @@ class ScanTableViewController: UITableViewController, CBPeripheralDelegate  {
     var selected: MBLMetaWear?
     
     // TESTING SCALE ADD IN *******
-    var manager:CBCentralManager? = nil
+    var manager = MBLMetaWearManager.shared()
+    var manager2:CBCentralManager? = nil
     let BLEService = "1804"
     // ****************************
     
@@ -36,7 +37,7 @@ class ScanTableViewController: UITableViewController, CBPeripheralDelegate  {
         }
         
         //  TESTING SCALE ADD_IN *********
-        manager?.scanForPeripherals(withServices: [CBUUID.init(string: BLEService)], options: nil)
+        manager2?.scanForPeripherals(withServices: [CBUUID.init(string: BLEService)], options: nil)
         // *******************************
     }
     
