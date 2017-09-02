@@ -9,7 +9,7 @@ import UIKit
 import MetaWear
 import MBProgressHUD
 // TESTING SCALE ADD IN *******
-import CoreBluetooth
+//import CoreBluetooth
 // ****************************
 
 protocol ScanTableViewControllerDelegate {
@@ -23,10 +23,10 @@ class ScanTableViewController: UITableViewController, CBPeripheralDelegate  {
     var selected: MBLMetaWear?
     
     // TESTING SCALE ADD IN *******
-    var manager = MBLMetaWearManager.shared()
+ /*   var manager = MBLMetaWearManager.shared()
     var manager2:CBCentralManager? = nil
     let BLEService = "1804"
-    // ****************************
+ */   // ****************************
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
@@ -37,7 +37,7 @@ class ScanTableViewController: UITableViewController, CBPeripheralDelegate  {
         }
         
         //  TESTING SCALE ADD_IN *********
-        manager2?.scanForPeripherals(withServices: [CBUUID.init(string: BLEService)], options: nil)
+        //manager2?.scanForPeripherals(withServices: [CBUUID.init(string: BLEService)], options: nil)
         // *******************************
     }
     
@@ -130,7 +130,7 @@ class ScanTableViewController: UITableViewController, CBPeripheralDelegate  {
     }
     
     // ************* BLE imported functions *************
-    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+/*    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         
         for service in peripheral.services! {
             
@@ -146,6 +146,6 @@ class ScanTableViewController: UITableViewController, CBPeripheralDelegate  {
             
         }
     }
-    // *************************************************
+*/    // *************************************************
     
 }

@@ -27,8 +27,8 @@ class ScaleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphe
     var mainPeripheral:CBPeripheral? = nil
     var mainCharacteristic:CBCharacteristic? = nil
     
-    let BLEService = "1804"
-    let BLECharacteristic = "2A07"
+    let BLEService = "1803"  //"1804"
+    let BLECharacteristic = "2A06"
     
     @IBOutlet weak var recievedMessageText: UILabel!
     
@@ -67,12 +67,12 @@ class ScaleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "scan-segue") {
-            let scanController : ScanTableViewController = segue.destination as! ScanTableViewController
+            let scanController : ScanTableViewController2 = segue.destination as! ScanTableViewController2
             
             //set the manager's delegate to the scan view so it can call relevant connection methods
             manager?.delegate = scanController
             scanController.manager = manager
-            scanTab.parentView = self
+            scanController.parentView = self
         }
         
     }

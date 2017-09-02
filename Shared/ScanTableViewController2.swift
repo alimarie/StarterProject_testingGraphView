@@ -74,14 +74,6 @@ class ScanTableViewController2: UITableViewController, CBCentralManagerDelegate 
         self.tableView.reloadData()
     }
     
-//    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : AnyObject], rssi RSSI: NSNumber) {
-//        
-//        if(!peripherals.contains(peripheral)) {
-//            peripherals.append(peripheral)
-//        }
-//        
-//        self.tableView.reloadData()
-//    }
     
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         print(central.state)
