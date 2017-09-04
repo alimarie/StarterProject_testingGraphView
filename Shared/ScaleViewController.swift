@@ -1,9 +1,8 @@
 //
 //  ScaleViewController.swift
-//  CompassCompanion
 //
-//  Created by Rick Smith on 04/07/2016.
-//  Copyright © 2016 Rick Smith. All rights reserved.
+//  Created by Ali Wood on 04/09/2017.
+//  Copyright © 2017 Ali Wood. All rights reserved.
 //
 
 import UIKit
@@ -18,7 +17,7 @@ import CoreBluetooth
  
  CHARACTERISTICS -
  #define WITTRAVELLER_TX_POWER_CHARACTERISTIC_UUID @"2A07"      --- DISCOVERABLE W/ 1804
- #define WITTRAVELLER_ALERT_LEVEL_CHARACTERISTIC_UUID @"2A06"   --- DISCOVERABLE W/ 1802*, 1803         
+ #define WITTRAVELLER_ALERT_LEVEL_CHARACTERISTIC_UUID @"2A06"   --- DISCOVERABLE W/ 1802*, 1803
  #define WITTRAVELLER_MANUFACTURER_NAME_CHARACTERISTIC_UUID @"2A29"
  */
 
@@ -27,8 +26,11 @@ class ScaleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphe
     var mainPeripheral:CBPeripheral? = nil
     var mainCharacteristic:CBCharacteristic? = nil
     
-    let BLEService = "1803"  //"1804"
-    let BLECharacteristic = "2A06"
+    let BLEService = "1804"
+    let BLECharacteristic = "2A07"
+    
+    
+    var peripherals:[CBPeripheral] = []
     
     @IBOutlet weak var recievedMessageText: UILabel!
     
@@ -39,6 +41,7 @@ class ScaleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphe
         
         customiseNavigationBar()
     }
+    
     
     func customiseNavigationBar () {
         
@@ -64,22 +67,10 @@ class ScaleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphe
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if (segue.identifier == "scan-segue") {
-            let scanController : ScanTableViewController2 = segue.destination as! ScanTableViewController2
-            
-            //set the manager's delegate to the scan view so it can call relevant connection methods
-            manager?.delegate = scanController
-            scanController.manager = manager
-            scanController.parentView = self
-        }
-        
-    }
     
     // MARK: Button Methods
     func scanButtonPressed() {
-        performSegue(withIdentifier: "scan-segue", sender: nil)
+        scanBLEDevices()
     }
     
     func disconnectButtonPressed() {
@@ -87,28 +78,54 @@ class ScaleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphe
         manager?.cancelPeripheralConnection(mainPeripheral!)
     }
     
-    @IBAction func sendButtonPressed(_ sender: AnyObject) {
-        let helloWorld = "Hello World!"
-        let dataToSend = helloWorld.data(using: String.Encoding.utf8)
-        
-        if (mainPeripheral != nil) {
-            mainPeripheral?.writeValue(dataToSend!, for: mainCharacteristic!, type: CBCharacteristicWriteType.withoutResponse)
-        } else {
-            print("haven't discovered device yet")
+    
+    // MARK: - CBCentralManagerDelegate Methods
+    
+    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        if(!peripherals.contains(peripheral)) {
+            peripherals.append(peripheral)
         }
+        
+      //  print("did discover peripheral ", peripheral.name!)
+        //self.tableView.reloadData()
+        
+        manager?.connect(peripheral, options: nil)
+      //   print("did connect peripheral ", peripheral.name!)
     }
     
-    // MARK: - CBCentralManagerDelegate Methods    
+    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+        
+        //pass reference to connected peripheral to parent view
+        mainPeripheral = peripheral
+        peripheral.delegate = self
+        peripheral.discoverServices(nil)
+        
+        //set the manager's delegate view to parent so it can call relevant disconnect methods
+        manager?.delegate = self
+        customiseNavigationBar()
+        
+/*        if let navController = self.navigationController {
+            navController.popViewController(animated: true)
+        }
+        
+*/
+        print("Connected to " +  peripheral.name!)
+    }
+    
+    func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+        print(error!)
+    }
+    
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         mainPeripheral = nil
         customiseNavigationBar()
-        print("Disconnected" + peripheral.name!)
+        print("Disconnected " + peripheral.name!)
     }
-    
     
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         print(central.state)
     }
+    
     
     // MARK: CBPeripheralDelegate Methods
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
@@ -116,11 +133,11 @@ class ScaleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphe
         for service in peripheral.services! {
             
             print("Service found with UUID: " + service.uuid.uuidString)
-         
+            
             if (service.uuid.uuidString == "1804") {
                 peripheral.discoverCharacteristics(nil, for: service)
             }
-       
+            
             if (service.uuid.uuidString == "0000FA00-494C-4F47-4943-544543480000") {
                 peripheral.discoverCharacteristics(nil, for: service)
             }
@@ -129,9 +146,9 @@ class ScaleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphe
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
-
+        
         if (service.uuid.uuidString == "0000FA00-494C-4F47-4943-544543480000") {
-                print("Found 0000FA00-494C-4F47-4943-544543480000 service!!")
+            print("Found 0000FA00-494C-4F47-4943-544543480000 service!!")
             for characteristic in service.characteristics! {
                 peripheral.setNotifyValue(true, for: characteristic)
                 if (characteristic.uuid.uuidString == "0000FA01-494C-4F47-4943-544543480000") {
@@ -177,18 +194,39 @@ class ScaleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphe
         
         if (characteristic.uuid.uuidString == "0000FA01-494C-4F47-4943-544543480000") {
             //value for device name recieved
-           let weight = characteristic.value
+            let weight = characteristic.value
             print(weight ?? "No Weight")
-             
+            
             if(characteristic.value != nil){
                 let stringValue = String(data: characteristic.value!, encoding: String.Encoding.utf8)!
                 print("1 - uft8: ", stringValue)
             }
         }
-      
         
+    }
+    
+    
+    // ********** FROM SCAN TABLE VIEW CONTROLLER **********
+    func scanBLEDevices() {
+        manager?.scanForPeripherals(withServices: [CBUUID.init(string: BLEService)], options: nil)
         
-
+        //stop scanning after 3 seconds
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            self.stopScanForBLEDevices()
+        }
+        
+        // print("Connected to " +  (mainPeripheral?.name)!)
+    }
+    
+    func stopScanForBLEDevices() {
+        manager?.stopScan()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "return from scale") {
+            manager?.cancelPeripheralConnection(mainPeripheral!)
+        }
         
     }
     

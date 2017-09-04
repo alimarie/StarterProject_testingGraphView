@@ -105,7 +105,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nc4-6U-9jW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="875" y="-679"/>
+            <point key="canvasLocation" x="1038" y="428"/>
         </scene>
         <!--Saved Devices-->
         <scene sceneID="46G-AP-mNH">
@@ -125,7 +125,7 @@
                                 <rect key="frame" x="0.0" y="24" width="375" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZEW-wz-LCx" id="hRw-ER-YXT">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="84"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="85"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MetaWear" translatesAutoresizingMaskIntoConstraints="NO" id="nSe-fd-aTp">
@@ -163,7 +163,7 @@
                                 <rect key="frame" x="0.0" y="109" width="375" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WIh-oz-kus" id="8TJ-RX-AAh">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="84"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="85"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi_d1" translatesAutoresizingMaskIntoConstraints="NO" id="aRj-05-1Qf" userLabel="Scale">
@@ -196,15 +196,12 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <connections>
-                                    <segue destination="TD8-z8-gd4" kind="push" id="Glt-7T-uYx"/>
-                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="NoDeviceCell" id="Nbx-hf-jjn">
                                 <rect key="frame" x="0.0" y="194" width="375" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nbx-hf-jjn" id="Cji-TJ-CG1">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="84"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="85"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a MetaWear device to get started!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlG-en-AkV">
@@ -226,7 +223,7 @@
                     <navigationItem key="navigationItem" title="Saved Devices" id="Rwk-Ki-eZ6">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="JdK-jZ-nO3" userLabel="Add Scale">
                             <connections>
-                                <segue destination="bAf-LU-Xs4" kind="push" id="tNS-IY-re5"/>
+                                <segue destination="TD8-z8-gd4" kind="push" id="0wv-yY-2jI"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="MN2-bD-XgL" userLabel="Add Metawear">
@@ -466,41 +463,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ozi-iQ-HNv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="169" y="1458"/>
-        </scene>
-        <!--Scan Scale-->
-        <scene sceneID="AkJ-li-Ff1">
-            <objects>
-                <tableViewController id="bAf-LU-Xs4" userLabel="Scan Scale" customClass="ScanTableViewController2" customModule="StarterProject" propertyAccessControl="none" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="PHF-lN-kvX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scanTableCell" id="hTl-A8-R6v">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hTl-A8-R6v" id="23q-DX-On8">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="bAf-LU-Xs4" id="flO-Pf-i4G"/>
-                            <outlet property="delegate" destination="bAf-LU-Xs4" id="X9D-6J-yFV"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="jkG-l4-XkZ"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f3U-JN-nmo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="875" y="122"/>
+            <point key="canvasLocation" x="1038" y="1253"/>
         </scene>
         <!--Scale-->
         <scene sceneID="u6H-vr-2gq">
             <objects>
-                <viewController id="TD8-z8-gd4" userLabel="Scale" customClass="MainViewController" customModule="BLEDemo" sceneMemberID="viewController">
+                <viewController id="TD8-z8-gd4" userLabel="Scale" customClass="ScaleViewController" customModule="StarterProject" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jnU-we-a9O"/>
                         <viewControllerLayoutGuide type="bottom" id="gg7-hR-Brp"/>
@@ -539,14 +507,21 @@
                             <constraint firstItem="bJf-QY-dad" firstAttribute="width" secondItem="Ib1-sh-ECe" secondAttribute="width" id="siz-Qc-Rgt"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Hfp-NR-os6"/>
+                    <navigationItem key="navigationItem" id="Hfp-NR-os6">
+                        <barButtonItem key="leftBarButtonItem" title="Return" id="yaq-WF-bCT">
+                            <connections>
+                                <segue destination="D2l-i7-3Pw" kind="push" identifier="return from scale" id="9W4-rR-BeY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="recievedMessageText" destination="bJf-QY-dad" id="JEC-E7-UkI"/>
+                        <outlet property="view" destination="Ib1-sh-ECe" id="JVW-56-Vql"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3F-RX-Ce3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="660" y="1458"/>
+            <point key="canvasLocation" x="1038" y="-434"/>
         </scene>
     </scenes>
     <resources>
@@ -564,4 +539,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="9W4-rR-BeY"/>
+    </inferredMetricsTieBreakers>
 </document>
