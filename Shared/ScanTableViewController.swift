@@ -13,10 +13,12 @@ protocol ScanTableViewControllerDelegate {
     func scanTableViewController(_ controller: ScanTableViewController, didSelectDevice device: MBLMetaWear)
 }
 
-class ScanTableViewController: UITableViewController {
+//class ScanTableViewController: UITableViewController
+class ScanTableViewController: UITableViewController, CBPeripheralDelegate  {
     var delegate: ScanTableViewControllerDelegate?
     var devices: [MBLMetaWear]?
     var selected: MBLMetaWear?
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
@@ -114,4 +116,6 @@ class ScanTableViewController: UITableViewController {
             }
         }
     }
+    
+    
 }

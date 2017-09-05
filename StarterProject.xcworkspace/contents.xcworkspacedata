@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../../SUCCESSFUL BLE APP/BLEDemo.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:StarterProject.xcodeproj">
    </FileRef>
    <FileRef

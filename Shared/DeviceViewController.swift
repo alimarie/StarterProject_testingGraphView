@@ -25,6 +25,8 @@ class DeviceViewController: UIViewController {
     @IBOutlet weak var StartStreamingButton: UIButton!
     @IBOutlet weak var StopStreamingButton: UIButton!
     
+    @IBOutlet weak var initiatePairingButton: UIButton!
+    
     // DATA
     var accelerometerBMI160Data = [MBLAccelerometerData]()
     
@@ -79,6 +81,14 @@ class DeviceViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func initiatePairing(_ sender: Any) {
+        device.settings?.initiatePairingAsync()
+        print("initiated pairing")
+        print("WAIT!!!!!  CHECK STUFF. ")
+        device.settings?.deleteAllBondsAsync()
+        print("deleted all bonds")
+    }
     
     //**********************************************************
     //              UPDATING SETTINGS FUNCTIONS

@@ -25,6 +25,7 @@
 		402973871DB839ED00EC8C32 /* DeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402973811DB839EA00EC8C32 /* DeviceViewController.swift */; };
 		402973881DB839ED00EC8C32 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402973821DB839EA00EC8C32 /* MainTableViewController.swift */; };
 		A74CC4E904D4261827DB3639 /* Pods_Starter_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CC4717E50B1C51696459B4 /* Pods_Starter_macOS.framework */; };
+		AF1702FF1F57F4C600AB7DA0 /* ScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1702FE1F57F4C600AB7DA0 /* ScaleViewController.swift */; };
 		AFC47C8E1F55AD3E00E18A1A /* AccelerometerFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC47C8B1F55AD3E00E18A1A /* AccelerometerFilter.m */; };
 		AFC47C8F1F55AD3E00E18A1A /* APLGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC47C8D1F55AD3E00E18A1A /* APLGraphView.m */; };
 		BC31A9FBED54BD932058B42E /* Pods_Starter_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B810285FECA2430C1FAEF3F /* Pods_Starter_tvOS.framework */; };
@@ -57,6 +58,7 @@
 		402973821DB839EA00EC8C32 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		4B810285FECA2430C1FAEF3F /* Pods_Starter_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Starter_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5831B849867AF94CA117AB75 /* Pods-Starter-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starter-macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Starter-macOS/Pods-Starter-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		AF1702FE1F57F4C600AB7DA0 /* ScaleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleViewController.swift; sourceTree = "<group>"; };
 		AFC47C891F55AD3D00E18A1A /* iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "iOS-Bridging-Header.h"; path = "../iOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		AFC47C8A1F55AD3E00E18A1A /* AccelerometerFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerometerFilter.h; sourceTree = "<group>"; };
 		AFC47C8B1F55AD3E00E18A1A /* AccelerometerFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerometerFilter.m; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				402973821DB839EA00EC8C32 /* MainTableViewController.swift */,
 				402973271DB81F5A00EC8C32 /* GameScene.swift */,
 				4029737D1DB839AF00EC8C32 /* ScanTableViewController.swift */,
+				AF1702FE1F57F4C600AB7DA0 /* ScaleViewController.swift */,
 				AFC47C891F55AD3D00E18A1A /* iOS-Bridging-Header.h */,
 				402973281DB81F5A00EC8C32 /* Assets.xcassets */,
 			);
@@ -487,6 +490,7 @@
 				402973841DB839EA00EC8C32 /* DeviceViewController.swift in Sources */,
 				AFC47C8E1F55AD3E00E18A1A /* AccelerometerFilter.m in Sources */,
 				AFC47C8F1F55AD3E00E18A1A /* APLGraphView.m in Sources */,
+				AF1702FF1F57F4C600AB7DA0 /* ScaleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
