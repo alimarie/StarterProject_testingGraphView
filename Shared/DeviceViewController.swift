@@ -17,28 +17,33 @@ class DeviceViewController: UIViewController {
     @IBOutlet weak var LightLabel: UILabel!
     @IBOutlet weak var HumidityLabel: UILabel!
     
-    
-    
     // BUTTONS
     @IBOutlet weak var StartMonitoringButton: UIButton!
     @IBOutlet weak var StopMonitoringButton: UIButton!
     @IBOutlet weak var StartStreamingButton: UIButton!
     @IBOutlet weak var StopStreamingButton: UIButton!
     
-    @IBOutlet weak var initiatePairingButton: UIButton!
-    
     // DATA
     var accelerometerBMI160Data = [MBLAccelerometerData]()
+    var gyroBMI160Data = [MBLGyroData]()
+    var lightData = [Double]()
+    var humidityData = [Double]()
+    var temperatureData = [Double]()
     
     // GRAPH VIEWS
     @IBOutlet weak var AccelerometerGraphView: APLGraphView!
+    @IBOutlet weak var GyroscopeGraphView: APLGraphView!
     
     // DEVICES
     var device: MBLMetaWear!
     
     // STREAMING
-    var streamingEvents: Set<NSObject> = [] // Can't use proper type due to compiler seg fault
+    var streamingEvents: Set<NSObject> = []
     
+    // EVENTS
+    var humidityEvent: MBLEvent<MBLNumericData>!
+    var temperatureEvent: MBLEvent<MBLNumericData>!
+    var lightEvent: MBLEvent<MBLNumericData>!
     
     
     
@@ -82,14 +87,14 @@ class DeviceViewController: UIViewController {
     }
     
     
-    @IBAction func initiatePairing(_ sender: Any) {
+/*    @IBAction func initiatePairing(_ sender: Any) {
         device.settings?.initiatePairingAsync()
         print("initiated pairing")
         print("WAIT!!!!!  CHECK STUFF. ")
         device.settings?.deleteAllBondsAsync()
         print("deleted all bonds")
     }
-    
+*/
     //**********************************************************
     //              UPDATING SETTINGS FUNCTIONS
     //**********************************************************
@@ -102,7 +107,14 @@ class DeviceViewController: UIViewController {
         accelerometerBMI160.sampleFrequency = 50
     }
     
-    
+    func updateGyroBMI160Settings() {
+        
+        let gyroBMI160 = self.device.gyro as! MBLGyroBMI160
+        gyroBMI160.fullScaleRange = .range500
+        //self.gyroBMI160Graph.fullScale = 4
+        gyroBMI160.sampleFrequency = 50
+        
+    }
     
     
     //**********************************************************
@@ -116,9 +128,34 @@ class DeviceViewController: UIViewController {
         StopMonitoringButton.isEnabled = true
         device.led?.flashColorAsync(UIColor.magenta, withIntensity: 1.0)
             
-            // ----- Track Movement -----
-            updateAccelerometerBMI160Settings()
-            device.accelerometer!.dataReadyEvent.startLoggingAsync()
+        // ----- Movement -----
+        updateAccelerometerBMI160Settings()
+        device.accelerometer!.dataReadyEvent.startLoggingAsync()
+        
+        updateGyroBMI160Settings()
+        device.gyro!.dataReadyEvent.startLoggingAsync()
+ 
+        // ----- Crying -----
+        
+        
+        
+        // ----- Ambient -----
+        temperatureEvent = device.temperature!.onboardThermistor?.periodicRead(withPeriod: 1000)
+        temperatureEvent.startLoggingAsync()
+        
+/*        humidityEvent = device.hygrometer!.humidity!.periodicRead(withPeriod: 1000)
+        humidityEvent.startLoggingAsync()
+        
+        let ambientLightLTR329 = device.ambientLight as! MBLAmbientLightLTR329
+        ambientLightLTR329.gain = .gain1X
+        ambientLightLTR329.integrationTime = .integration50ms
+        ambientLightLTR329.measurementRate = .rate50ms
+        lightEvent = ambientLightLTR329.periodicIlluminance
+        lightEvent = ambientLightLTR329.periodicIlluminance
+        lightEvent.startLoggingAsync()
+*/
+        
+        
     }
     
     @IBAction func StopMonitoring(_ sender: Any) {
@@ -129,17 +166,43 @@ class DeviceViewController: UIViewController {
         device.led?.setLEDOnAsync(false, withOptions: 1)
         
         
+        // ----- Movement -----
         device.accelerometer!.dataReadyEvent.downloadLogAndStopLoggingAsync(true, progressHandler: { number in
-            // Update progress bar, as this can take anywhere from one minute
-            // to a couple hours to download a full log
         }).success({ array in self.accelerometerBMI160Data = array as! [MBLAccelerometerData]
+            print("ACCELEROMETER DATA:")
             // array contains all the log entries
             for obj in self.accelerometerBMI160Data {
-                print("Entry: " + String(describing: obj))
+                //print("Entry: " + String(describing: obj))
                 self.AccelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
             }
         })
 
+        device.gyro!.dataReadyEvent.downloadLogAndStopLoggingAsync(true, progressHandler: { number in
+        }).success({ array in self.gyroBMI160Data = array as! [MBLGyroData]
+            print("GYROSCOPE DATA:")
+            // array contains all the log entries
+            for obj in self.gyroBMI160Data {
+                //print("Entry: " + String(describing: obj))
+                //self.GyroscopeGraphView.addX(obj.x, y: obj.y, z: obj.z)
+            }
+        })
+        
+        
+        
+        // ----- Crying -----
+        
+        
+        // ----- Ambient -----
+        
+        temperatureEvent.downloadLogAndStopLoggingAsync(true, progressHandler: { number in
+        }).success({ array in self.temperatureData = array as! [Double]
+            print("TEMPERATURE DATA:")
+            // array contains all the log entries
+            for obj in self.temperatureData {
+                print("Entry: " + String(describing: obj))
+                //self.GyroscopeGraphView.addX(obj.x, y: obj.y, z: obj.z)
+            }
+        })
 
     }
     
@@ -151,7 +214,7 @@ class DeviceViewController: UIViewController {
         StopStreamingButton.isEnabled = true
         device.led?.setLEDColorAsync(UIColor.cyan, withIntensity: 1.0)
         
-        // ----- ACCELEROMETER -----
+        // ----- Movement -----
         updateAccelerometerBMI160Settings()
         var array_A = [MBLAccelerometerData]() /* capacity: 1000 */
         accelerometerBMI160Data = array_A
@@ -163,6 +226,14 @@ class DeviceViewController: UIViewController {
                 //print("x: ", obj.x, ", y: ", obj.y, ", z: ", obj.z)
             }
         }
+        
+        
+        
+        // ----- Crying -----
+        
+        // ----- Ambient -----
+        
+        
     }
     
     @IBAction func StopStreaming(_ sender: Any) {
@@ -172,9 +243,15 @@ class DeviceViewController: UIViewController {
         StopStreamingButton.isEnabled = false
         device.led?.setLEDOnAsync(false, withOptions: 1)
         
-        // ----- accelerometer -----
+        // ----- Movement -----
         streamingEvents.remove(device.accelerometer!.dataReadyEvent)
         device.accelerometer!.dataReadyEvent.stopNotificationsAsync()
+        
+        
+        // ----- Crying -----
+        
+        
+        // ----- Ambient -----
         
     }
     
