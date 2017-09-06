@@ -45,6 +45,21 @@ class DeviceViewController: UIViewController {
     var temperatureEvent: MBLEvent<MBLNumericData>!
     var lightEvent: MBLEvent<MBLNumericData>!
     
+    // LOGGING STUFF
+    var isObserving = false {
+        didSet {
+            if self.isObserving {
+                if !oldValue {
+                    self.device.addObserver(self, forKeyPath: "state", options: .new, context: nil)
+                }
+            } else {
+                if oldValue {
+                    self.device.removeObserver(self, forKeyPath: "state")
+                }
+            }
+        }
+    }
+
     
     
     
@@ -87,14 +102,7 @@ class DeviceViewController: UIViewController {
     }
     
     
-/*    @IBAction func initiatePairing(_ sender: Any) {
-        device.settings?.initiatePairingAsync()
-        print("initiated pairing")
-        print("WAIT!!!!!  CHECK STUFF. ")
-        device.settings?.deleteAllBondsAsync()
-        print("deleted all bonds")
-    }
-*/
+
     //**********************************************************
     //              UPDATING SETTINGS FUNCTIONS
     //**********************************************************
@@ -126,17 +134,46 @@ class DeviceViewController: UIViewController {
         
     }
     
+    func clearDataArrays(){
+    
+        lightData.removeAll()
+        humidityData.removeAll()
+        temperatureData.removeAll()
+        gyroBMI160Data.removeAll()
+        accelerometerBMI160Data.removeAll()
+        
+    }
+    
+    func logCleanup(_ handler: @escaping MBLErrorHandler) {
+        // In order for the device to actaully erase the flash memory we can't be in a connection
+        // so temporally disconnect to allow flash to erase.
+        isObserving = false
+        device.disconnectAsync().continueOnDispatch { t in
+            self.isObserving = true
+            guard t.error == nil else {
+                return t
+            }
+            return self.device.connect(withTimeoutAsync: 15)
+            }.continueOnDispatch { t in
+                handler(t.error)
+                return nil
+        }
+    }
+    
     
     //**********************************************************
     //                   TRACKING FUNCTIONS
     //**********************************************************
     
     @IBAction func StartMonitoring(_ sender: Any) {
+        
         print("Start Monitoring tapped")
         
         StartMonitoringButton.isEnabled = false
         StopMonitoringButton.isEnabled = true
         device.led?.flashColorAsync(UIColor.magenta, withIntensity: 1.0)
+        
+      
             
         // ----- Movement -----
         updateAccelerometerBMI160Settings()
@@ -168,15 +205,14 @@ class DeviceViewController: UIViewController {
         StopMonitoringButton.isEnabled = false
         device.led?.setLEDOnAsync(false, withOptions: 1)
         
-        
         // ----- Movement -----
         device.accelerometer!.dataReadyEvent.downloadLogAndStopLoggingAsync(true, progressHandler: { number in
         }).success({ array in self.accelerometerBMI160Data = array as! [MBLAccelerometerData]
             print("ACCELEROMETER DATA:")
             // array contains all the log entries
             for obj in self.accelerometerBMI160Data {
-                //print("Entry: " + String(describing: obj))
-                self.AccelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
+                print("Entry: " + String(describing: obj))
+                //self.AccelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
             }
         })
 
@@ -185,7 +221,7 @@ class DeviceViewController: UIViewController {
             print("GYROSCOPE DATA:")
             // array contains all the log entries
             for obj in self.gyroBMI160Data {
-                //print("Entry: " + String(describing: obj))
+                print("Entry: " + String(describing: obj))
                 //self.GyroscopeGraphView.addX(obj.x, y: obj.y, z: obj.z)
             }
         })
@@ -202,7 +238,7 @@ class DeviceViewController: UIViewController {
             print("TEMPERATURE DATA:")
             // array contains all the log entries
             for obj in self.temperatureData {
-               // print("Entry: " + String(describing: obj))
+                print("Entry: " + String(describing: obj))
                 //self.GyroscopeGraphView.addX(obj.x, y: obj.y, z: obj.z)
             }
         })
@@ -222,11 +258,18 @@ class DeviceViewController: UIViewController {
             print("LIGHT DATA:")
             // array contains all the log entries
             for obj in self.lightData {
-                //print("Entry: " + String(describing: obj))
+                print("Entry: " + String(describing: obj))
                 //self.GyroscopeGraphView.addX(obj.x, y: obj.y, z: obj.z)
             }
         })
-
+        
+        self.logCleanup{ error in
+            if error != nil {
+               // self.connectDevice(false)
+                print("hmmmm.... can`t clear the log.")
+            }
+        }
+        print("cleared log. lets go again")
     }
     
     
