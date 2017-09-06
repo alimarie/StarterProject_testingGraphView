@@ -26,9 +26,9 @@ class DeviceViewController: UIViewController {
     // DATA
     var accelerometerBMI160Data = [MBLAccelerometerData]()
     var gyroBMI160Data = [MBLGyroData]()
-    var lightData = [Double]()
-    var humidityData = [Double]()
-    var temperatureData = [Double]()
+    var lightData = [MBLNumericData]()
+    var humidityData = [MBLNumericData]()
+    var temperatureData = [MBLNumericData]()
     
     // GRAPH VIEWS
     @IBOutlet weak var AccelerometerGraphView: APLGraphView!
@@ -116,6 +116,16 @@ class DeviceViewController: UIViewController {
         
     }
     
+    func updateLightSettings(){
+    
+        let ambientLightLTR329 = device.ambientLight as! MBLAmbientLightLTR329
+        ambientLightLTR329.gain = .gain1X
+        ambientLightLTR329.integrationTime = .integration50ms
+        ambientLightLTR329.measurementRate = .rate2000ms
+        lightEvent = ambientLightLTR329.periodicIlluminance
+        
+    }
+    
     
     //**********************************************************
     //                   TRACKING FUNCTIONS
@@ -140,22 +150,15 @@ class DeviceViewController: UIViewController {
         
         
         // ----- Ambient -----
-        temperatureEvent = device.temperature!.onboardThermistor?.periodicRead(withPeriod: 1000)
+        temperatureEvent = device.temperature!.onboardThermistor?.periodicRead(withPeriod: 60000)
         temperatureEvent.startLoggingAsync()
         
-/*        humidityEvent = device.hygrometer!.humidity!.periodicRead(withPeriod: 1000)
+        humidityEvent = device.hygrometer!.humidity!.periodicRead(withPeriod: 60000)
         humidityEvent.startLoggingAsync()
         
-        let ambientLightLTR329 = device.ambientLight as! MBLAmbientLightLTR329
-        ambientLightLTR329.gain = .gain1X
-        ambientLightLTR329.integrationTime = .integration50ms
-        ambientLightLTR329.measurementRate = .rate50ms
-        lightEvent = ambientLightLTR329.periodicIlluminance
-        lightEvent = ambientLightLTR329.periodicIlluminance
+        updateLightSettings()
         lightEvent.startLoggingAsync()
-*/
-        
-        
+
     }
     
     @IBAction func StopMonitoring(_ sender: Any) {
@@ -195,11 +198,31 @@ class DeviceViewController: UIViewController {
         // ----- Ambient -----
         
         temperatureEvent.downloadLogAndStopLoggingAsync(true, progressHandler: { number in
-        }).success({ array in self.temperatureData = array as! [Double]
+        }).success({ array in self.temperatureData = array as! [MBLNumericData]
             print("TEMPERATURE DATA:")
             // array contains all the log entries
             for obj in self.temperatureData {
+               // print("Entry: " + String(describing: obj))
+                //self.GyroscopeGraphView.addX(obj.x, y: obj.y, z: obj.z)
+            }
+        })
+        
+        humidityEvent.downloadLogAndStopLoggingAsync(true, progressHandler: { number in
+        }).success({ array in self.humidityData = array as! [MBLNumericData]
+            print("HUMIDITY DATA:")
+            // array contains all the log entries
+            for obj in self.humidityData {
                 print("Entry: " + String(describing: obj))
+                //self.GyroscopeGraphView.addX(obj.x, y: obj.y, z: obj.z)
+            }
+        })
+        
+        lightEvent.downloadLogAndStopLoggingAsync(true, progressHandler: { number in
+        }).success({ array in self.lightData = array as! [MBLNumericData]
+            print("LIGHT DATA:")
+            // array contains all the log entries
+            for obj in self.lightData {
+                //print("Entry: " + String(describing: obj))
                 //self.GyroscopeGraphView.addX(obj.x, y: obj.y, z: obj.z)
             }
         })

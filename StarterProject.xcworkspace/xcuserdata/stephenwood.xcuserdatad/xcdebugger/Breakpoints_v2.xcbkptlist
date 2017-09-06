@@ -10,60 +10,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shared/DeviceViewController.swift"
-            timestampString = "526339584.298615"
+            timestampString = "526400170.7709"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "StopMonitoring(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "StarterProject.DeviceViewController.StopMonitoring (Any) -&gt; ()"
-                  moduleName = "StarterProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/stephenwood/Desktop/MetaWear-SampleApp/StarterProject/Shared/DeviceViewController.swift"
-                  timestampString = "526339594.405207"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "198"
-                  endingLineNumber = "198"
-                  offsetFromSymbolStart = "2936">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "StarterProject.DeviceViewController.(StopMonitoring (Any) -&gt; ()).(closure #5)"
-                  moduleName = "StarterProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/stephenwood/Desktop/MetaWear-SampleApp/StarterProject/Shared/DeviceViewController.swift"
-                  timestampString = "526339594.408319"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "198"
-                  endingLineNumber = "198"
-                  offsetFromSymbolStart = "8">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "StarterProject.DeviceViewController.(StopMonitoring (Any) -&gt; ()).(closure #6)"
-                  moduleName = "StarterProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/stephenwood/Desktop/MetaWear-SampleApp/StarterProject/Shared/DeviceViewController.swift"
-                  timestampString = "526339594.411184"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "198"
-                  endingLineNumber = "198"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/DeviceViewController.swift"
+            timestampString = "526400170.7709"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "StopMonitoring(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/DeviceViewController.swift"
+            timestampString = "526400613.728911"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "updateLightSettings()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -73,11 +58,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shared/DeviceViewController.swift"
-            timestampString = "526339586.426674"
+            timestampString = "526400694.853804"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "StopMonitoring(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/DeviceViewController.swift"
+            timestampString = "526401179.75512"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "StopMonitoring(_:)"
             landmarkType = "7">
          </BreakpointContent>
