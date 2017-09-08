@@ -31,7 +31,8 @@ class DeviceViewController: UIViewController {
     var temperatureData = [MBLNumericData]()
     
     // GRAPH VIEWS
-    @IBOutlet weak var AccelerometerGraphView: APLGraphView!
+    var count = 0
+   // @IBOutlet weak var AccelerometerGraphView: APLGraphView!
     
     // DEVICES
     var device: MBLMetaWear!
@@ -110,7 +111,7 @@ class DeviceViewController: UIViewController {
         let accelerometerBMI160 = self.device.accelerometer as! MBLAccelerometerBMI160
         
         accelerometerBMI160.fullScaleRange = .range2G
-        self.AccelerometerGraphView.fullScale = 2
+        //self.AccelerometerGraphView.fullScale = 2
         accelerometerBMI160.sampleFrequency = 50
     }
     
@@ -203,6 +204,7 @@ class DeviceViewController: UIViewController {
         StartMonitoringButton.isEnabled = true
         StopMonitoringButton.isEnabled = false
         device.led?.setLEDOnAsync(false, withOptions: 1)
+       
         
         // ----- Movement -----
         device.accelerometer!.dataReadyEvent.downloadLogAndStopLoggingAsync(true, progressHandler: { number in
@@ -213,6 +215,8 @@ class DeviceViewController: UIViewController {
                 print("Entry: " + String(describing: obj))
                 //self.AccelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
             }
+            self.count += 1
+            self.checkCount()
         })
 
         device.gyro!.dataReadyEvent.downloadLogAndStopLoggingAsync(true, progressHandler: { number in
@@ -221,8 +225,9 @@ class DeviceViewController: UIViewController {
             // array contains all the log entries
             for obj in self.gyroBMI160Data {
                 print("Entry: " + String(describing: obj))
-                //self.GyroscopeGraphView.addX(obj.x, y: obj.y, z: obj.z)
             }
+            self.count += 1
+            self.checkCount()
         })
         
         
@@ -238,8 +243,9 @@ class DeviceViewController: UIViewController {
             // array contains all the log entries
             for obj in self.temperatureData {
                 print("Entry: " + String(describing: obj))
-                //self.GyroscopeGraphView.addX(obj.x, y: obj.y, z: obj.z)
             }
+            self.count += 1
+            self.checkCount()
         })
         
         humidityEvent.downloadLogAndStopLoggingAsync(true, progressHandler: { number in
@@ -248,8 +254,9 @@ class DeviceViewController: UIViewController {
             // array contains all the log entries
             for obj in self.humidityData {
                 print("Entry: " + String(describing: obj))
-                //self.GyroscopeGraphView.addX(obj.x, y: obj.y, z: obj.z)
             }
+            self.count += 1
+            self.checkCount()
         })
         
         lightEvent.downloadLogAndStopLoggingAsync(true, progressHandler: { number in
@@ -258,19 +265,26 @@ class DeviceViewController: UIViewController {
             // array contains all the log entries
             for obj in self.lightData {
                 print("Entry: " + String(describing: obj))
-                //self.GyroscopeGraphView.addX(obj.x, y: obj.y, z: obj.z)
             }
+            self.count += 1
+            self.checkCount()
         })
         
         self.logCleanup{ error in
             if error != nil {
-               // self.connectDevice(false)
                 print("hmmmm.... can`t clear the log.")
             }
         }
-        print("cleared log. lets go again")
     }
     
+    
+    func checkCount(){
+        if(count == 5){
+           performSegue(withIdentifier: "graphSegue", sender: self)
+            print("count = 5")
+        }
+    
+    }
     
     @IBAction func StartStreaming(_ sender: Any) {
         print("Start Streaming tapped")
@@ -286,7 +300,7 @@ class DeviceViewController: UIViewController {
         streamingEvents.insert(device.accelerometer!.dataReadyEvent)
         device.accelerometer!.dataReadyEvent.startNotificationsAsync { (obj, error) in
             if let obj = obj {
-                self.AccelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
+                //self.AccelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
                 array_A.append(obj)
                 //print("x: ", obj.x, ", y: ", obj.y, ", z: ", obj.z)
             }
@@ -326,11 +340,18 @@ class DeviceViewController: UIViewController {
         if (segue.identifier == "graphSegue") {
             if let DVC = segue.destination as? GraphController{
                 DVC.accelerometerArray = accelerometerBMI160Data
+                DVC.gyroscopeArray = gyroBMI160Data
+                DVC.lightArray = lightData
+                DVC.humidityArray = humidityData
+                DVC.temperatureArray = temperatureData
+                
             } else {
                 print("Data NOT Passed! destination vc is not set to firstVC")
             }
             print("id matched")
-        } else { print("Id doesnt match with Storyboard segue Id") }
+        } else {
+            print("Id doesnt match with Storyboard segue Id")
+        }
         
     }
     

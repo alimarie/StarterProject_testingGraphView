@@ -23,7 +23,6 @@ class GraphController: UIViewController {
     @IBOutlet weak var HumidityGraphView: APLGraphView!
     @IBOutlet weak var TemperatureGraphView: APLGraphView!
     
-    @IBOutlet weak var textView: UITextView!
     
     var accelerometerArray = [MBLAccelerometerData]()
     var gyroscopeArray = [MBLGyroData]()
@@ -34,18 +33,36 @@ class GraphController: UIViewController {
     var temperatureArray = [MBLNumericData]()
     
     override func viewDidLoad() {
-        print("graph view did load")
         
+        defineGraphViewSettings()
         if(accelerometerArray.count != 0){
-            print(accelerometerArray)
+            for obj in self.accelerometerArray {
+                self.AccelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
+            }
+            for obj in self.gyroscopeArray {
+                self.GyroscopeGraphView.addX(obj.x, y: obj.y, z: obj.z)
+            }
+            
+            print("LIGHT: ", lightArray)
+            print("HUMIDITY: ", humidityArray)
+            print("TEMPERATURE: ", temperatureArray)
+            
         }
         else{
             print("empty still")
         }
-
         
     }
     
+    func defineGraphViewSettings() {
+    
+        self.AccelerometerGraphView.fullScale = 2
+        self.GyroscopeGraphView.fullScale = 4
+        self.LightGraphView.fullScale = 400
+        self.HumidityGraphView.fullScale = 100
+        self.TemperatureGraphView.fullScale = 60
+    
+    }
     
 
     

@@ -215,14 +215,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XDI-3T-IxA">
-                                <rect key="frame" x="-3" y="73" width="380" height="690"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XDI-3T-IxA">
+                                <rect key="frame" x="-3" y="73" width="380" height="540"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sFa-mE-jPj" userLabel="Felicity Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="380" height="690"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sFa-mE-jPj" userLabel="Felicity Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="380" height="540"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUs-1D-50Y">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUs-1D-50Y">
                                                 <rect key="frame" x="0.0" y="0.0" width="380" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="uZ5-n8-hhC"/>
@@ -231,40 +230,40 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6SZ-z7-BM8">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6SZ-z7-BM8">
                                                 <rect key="frame" x="0.0" y="50" width="380" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="380" id="2Zd-bE-pFh"/>
                                                     <constraint firstAttribute="height" constant="50" id="BuM-VO-crC"/>
                                                 </constraints>
                                             </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="baby_normal" translatesAutoresizingMaskIntoConstraints="NO" id="8aL-YE-aH7" userLabel="Baby Normal">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baby_normal" translatesAutoresizingMaskIntoConstraints="NO" id="8aL-YE-aH7" userLabel="Baby Normal">
                                                 <rect key="frame" x="0.0" y="100" width="380" height="180"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="180" id="28m-1N-i9Z"/>
                                                     <constraint firstAttribute="width" constant="380" id="eUy-Jk-HxQ"/>
                                                 </constraints>
                                             </imageView>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ekp-8u-FhQ">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ekp-8u-FhQ">
                                                 <rect key="frame" x="0.0" y="280" width="380" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="mDi-bW-x5c"/>
                                                     <constraint firstAttribute="width" constant="380" id="xGB-9Q-YPH"/>
                                                 </constraints>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dyP-2Q-9rs" userLabel="Ambient Environment Characteristics Stack View">
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyP-2Q-9rs" userLabel="Ambient Environment Characteristics Stack View">
                                                 <rect key="frame" x="0.0" y="330" width="380" height="150"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mkc-ez-3Ye" userLabel="Temperature Stack View">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mkc-ez-3Ye" userLabel="Temperature Stack View">
                                                         <rect key="frame" x="0.0" y="0.0" width="126.5" height="150"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Temperature" translatesAutoresizingMaskIntoConstraints="NO" id="L6V-Pm-jbi" userLabel="Thermometer">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Temperature" translatesAutoresizingMaskIntoConstraints="NO" id="L6V-Pm-jbi" userLabel="Thermometer">
                                                                 <rect key="frame" x="0.0" y="0.0" width="126.5" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="100" id="IKk-rF-Emw"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Temperature" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHf-qE-BDn">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHf-qE-BDn">
                                                                 <rect key="frame" x="0.0" y="100" width="126.5" height="50"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -275,16 +274,16 @@
                                                             <constraint firstAttribute="height" constant="150" id="kbs-iS-gS7"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="E6V-fg-YN1" userLabel="Light Stack View">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="E6V-fg-YN1" userLabel="Light Stack View">
                                                         <rect key="frame" x="126.5" y="0.0" width="127" height="150"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Light" translatesAutoresizingMaskIntoConstraints="NO" id="hg3-xn-8fW" userLabel="Lightbulb">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Light" translatesAutoresizingMaskIntoConstraints="NO" id="hg3-xn-8fW" userLabel="Lightbulb">
                                                                 <rect key="frame" x="0.0" y="0.0" width="127" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="100" id="Toc-XD-JL5"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Light" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXJ-wY-lhS">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Light" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXJ-wY-lhS">
                                                                 <rect key="frame" x="0.0" y="100" width="127" height="50"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -295,16 +294,16 @@
                                                             <constraint firstAttribute="height" constant="150" id="Y01-ZQ-eTD"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Znj-vE-FYu" userLabel="Humidity Stack View">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Znj-vE-FYu" userLabel="Humidity Stack View">
                                                         <rect key="frame" x="253.5" y="0.0" width="126.5" height="150"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Humidity" translatesAutoresizingMaskIntoConstraints="NO" id="n3c-YU-1sf" userLabel="Raindrop">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Humidity" translatesAutoresizingMaskIntoConstraints="NO" id="n3c-YU-1sf" userLabel="Raindrop">
                                                                 <rect key="frame" x="0.0" y="0.0" width="126.5" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="100" id="BJ6-hr-Ynx"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Humidity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERA-ZP-0VV">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERA-ZP-0VV">
                                                                 <rect key="frame" x="0.0" y="100" width="126.5" height="50"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -326,22 +325,21 @@
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="380" id="z2a-0F-6jI"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eS7-U8-GhA" userLabel="Monitoring Stack View">
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eS7-U8-GhA" userLabel="Monitoring Stack View">
                                                 <rect key="frame" x="0.0" y="480" width="380" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFb-L3-ZcU">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFb-L3-ZcU">
                                                         <rect key="frame" x="0.0" y="0.0" width="190" height="30"/>
                                                         <state key="normal" title="Start Monitoring"/>
                                                         <connections>
                                                             <action selector="StartMonitoring:" destination="XFA-76-WTO" eventType="touchUpInside" id="mMW-NI-KSg"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZL-x5-j3s" userLabel="Stop Monitoring">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZL-x5-j3s" userLabel="Stop Monitoring">
                                                         <rect key="frame" x="190" y="0.0" width="190" height="30"/>
                                                         <state key="normal" title="Stop Monitoring"/>
                                                         <connections>
                                                             <action selector="StopMonitoring:" destination="XFA-76-WTO" eventType="touchUpInside" id="KHJ-NV-1dp"/>
-                                                            <segue destination="bLy-Zc-Ovh" kind="push" identifier="graphSegue" id="J6l-WR-Wdq"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -350,17 +348,17 @@
                                                     <constraint firstAttribute="height" constant="30" id="kRj-yU-9b2"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xPe-XX-fYJ" userLabel="Streaming Stack View">
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xPe-XX-fYJ" userLabel="Streaming Stack View">
                                                 <rect key="frame" x="0.0" y="510" width="380" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1u-TE-yjq" userLabel="Start Streaming">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1u-TE-yjq" userLabel="Start Streaming">
                                                         <rect key="frame" x="0.0" y="0.0" width="190" height="30"/>
                                                         <state key="normal" title="Start Streaming"/>
                                                         <connections>
                                                             <action selector="StartStreaming:" destination="XFA-76-WTO" eventType="touchUpInside" id="qQy-m3-0Lh"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTf-Um-qgT" userLabel="Stop Streaming">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTf-Um-qgT" userLabel="Stop Streaming">
                                                         <rect key="frame" x="190" y="0.0" width="190" height="30"/>
                                                         <state key="normal" title="Stop Streaming"/>
                                                         <connections>
@@ -373,15 +371,6 @@
                                                     <constraint firstAttribute="height" constant="30" id="e04-8T-PWk"/>
                                                 </constraints>
                                             </stackView>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uuB-jo-EnI" customClass="APLGraphView">
-                                                <rect key="frame" x="0.0" y="540" width="380" height="150"/>
-                                                <color key="backgroundColor" red="0.60267040019999996" green="0.85961777510000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="116" id="olF-JD-JJF"/>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="380" id="r8t-ll-ij1"/>
-                                                    <constraint firstAttribute="height" constant="150" id="udz-tQ-kQS"/>
-                                                </constraints>
-                                            </view>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="eS7-U8-GhA" firstAttribute="centerX" secondItem="vUs-1D-50Y" secondAttribute="centerX" id="ExM-rs-l9V"/>
@@ -395,10 +384,13 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.87367937201889778" green="0.56245236239856355" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="XDI-3T-IxA" firstAttribute="centerX" secondItem="6ZF-2c-MfT" secondAttribute="centerX" id="2iZ-n1-Wk8"/>
+                            <constraint firstItem="XDI-3T-IxA" firstAttribute="centerY" secondItem="6ZF-2c-MfT" secondAttribute="centerY" id="xBa-m8-yix"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Device" id="zSU-Fp-fTT"/>
                     <connections>
-                        <outlet property="AccelerometerGraphView" destination="uuB-jo-EnI" id="cA5-Kx-fhM"/>
                         <outlet property="HumidityLabel" destination="ERA-ZP-0VV" id="eZ2-9h-6ud"/>
                         <outlet property="LightLabel" destination="ZXJ-wY-lhS" id="4Jz-Nr-oM5"/>
                         <outlet property="StartMonitoringButton" destination="PFb-L3-ZcU" id="KJp-T2-uU9"/>
@@ -407,6 +399,7 @@
                         <outlet property="StopStreamingButton" destination="lTf-Um-qgT" id="nLE-DC-tHK"/>
                         <outlet property="TemperatureLabel" destination="fHf-qE-BDn" id="cvx-U0-RQM"/>
                         <outlet property="deviceStatus" destination="vUs-1D-50Y" id="yrQ-is-jj2"/>
+                        <segue destination="bLy-Zc-Ovh" kind="push" identifier="graphSegue" id="2uA-jd-l4M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ozi-iQ-HNv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -483,13 +476,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WrY-LS-h3B">
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WrY-LS-h3B">
                                 <rect key="frame" x="0.0" y="67" width="375" height="595"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C1d-Ce-0hc" userLabel="Sleep/Wake Stack View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C1d-Ce-0hc" userLabel="Sleep/Wake Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Sleep / Wake" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPa-Sv-sDI" userLabel="Sleep / Wake">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep / Wake" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPa-Sv-sDI" userLabel="Sleep / Wake">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="170"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="4a6-Cb-i75"/>
@@ -498,14 +491,14 @@
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gvq-Mz-LmG" userLabel="Graph Stack View">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gvq-Mz-LmG" userLabel="Graph Stack View">
                                                 <rect key="frame" x="30" y="0.0" width="345" height="170"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rO1-sB-0wa" userLabel="Accelerometer Graph View" customClass="APLGraphView">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rO1-sB-0wa" userLabel="Accelerometer Graph View" customClass="APLGraphView">
                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="85"/>
                                                         <color key="backgroundColor" red="0.40416428837661733" green="0.86335414551091261" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KMP-Ju-T3J" userLabel="Gyroscope Graph View" customClass="APLGraphView">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KMP-Ju-T3J" userLabel="Gyroscope Graph View" customClass="APLGraphView">
                                                         <rect key="frame" x="0.0" y="85" width="345" height="85"/>
                                                         <color key="backgroundColor" red="0.38378459232231577" green="0.82716024084212758" blue="0.96255667098445596" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </view>
@@ -521,10 +514,10 @@
                                             <constraint firstAttribute="height" constant="170" id="O4i-O3-P1V"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RFJ-uM-N5R" userLabel="Crying Stack View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RFJ-uM-N5R" userLabel="Crying Stack View">
                                         <rect key="frame" x="0.0" y="170" width="375" height="85"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Crying" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hW-I1-U9L" userLabel="Crying">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crying" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hW-I1-U9L" userLabel="Crying">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="85"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="xHv-j1-rM5"/>
@@ -533,7 +526,7 @@
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x3J-AO-DDj" userLabel="Crying Graph View" customClass="APLGraphView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x3J-AO-DDj" userLabel="Crying Graph View" customClass="APLGraphView">
                                                 <rect key="frame" x="30" y="0.0" width="345" height="85"/>
                                                 <color key="backgroundColor" red="0.37059850329999999" green="0.79874063039999998" blue="0.92948510360000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
@@ -542,10 +535,10 @@
                                             <constraint firstAttribute="height" constant="85" id="IhT-mv-Z6d"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zkg-Cb-L7n" userLabel="Feeding Stack View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zkg-Cb-L7n" userLabel="Feeding Stack View">
                                         <rect key="frame" x="0.0" y="255" width="375" height="85"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Feeding" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6W-hZ-CPv" userLabel="Feeding">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feeding" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6W-hZ-CPv" userLabel="Feeding">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="85"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="tjl-0Y-7Np"/>
@@ -554,7 +547,7 @@
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sdp-uY-zkn" userLabel="Feeding Graph View" customClass="APLGraphView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sdp-uY-zkn" userLabel="Feeding Graph View" customClass="APLGraphView">
                                                 <rect key="frame" x="30" y="0.0" width="345" height="85"/>
                                                 <color key="backgroundColor" red="0.35300629140000001" green="0.76082462630000003" blue="0.88536269430000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
@@ -563,10 +556,10 @@
                                             <constraint firstAttribute="height" constant="85" id="MKX-6m-0Pf"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MKp-Vi-4H2" userLabel="Light Stack View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MKp-Vi-4H2" userLabel="Light Stack View">
                                         <rect key="frame" x="0.0" y="340" width="375" height="85"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Light" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIH-PY-bWK" userLabel="Light">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Light" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIH-PY-bWK" userLabel="Light">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="85"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="hi9-D6-8qQ"/>
@@ -575,7 +568,7 @@
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dXl-Rg-wWP" userLabel="Light Graph View" customClass="APLGraphView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXl-Rg-wWP" userLabel="Light Graph View" customClass="APLGraphView">
                                                 <rect key="frame" x="30" y="0.0" width="345" height="85"/>
                                                 <color key="backgroundColor" red="0.34451218709999998" green="0.7323714778" blue="0.87937176169999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
@@ -584,10 +577,10 @@
                                             <constraint firstAttribute="height" constant="85" id="qAe-WB-Ddn"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3zh-uz-DCE" userLabel="Humidity Stack View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zh-uz-DCE" userLabel="Humidity Stack View">
                                         <rect key="frame" x="0.0" y="425" width="375" height="85"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Humidity" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsS-W9-wEz" userLabel="Humidity">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsS-W9-wEz" userLabel="Humidity">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="85"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="6IN-QL-h0s"/>
@@ -596,7 +589,7 @@
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Fz-Pg-fUI" userLabel="Humidity Graph View" customClass="APLGraphView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Fz-Pg-fUI" userLabel="Humidity Graph View" customClass="APLGraphView">
                                                 <rect key="frame" x="30" y="0.0" width="345" height="85"/>
                                                 <color key="backgroundColor" red="0.32627479920000002" green="0.69360204309999995" blue="0.83282059590000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
@@ -605,10 +598,10 @@
                                             <constraint firstAttribute="height" constant="85" id="QHw-BB-Art"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WV5-oB-Ga4" userLabel="Temperature Stack View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WV5-oB-Ga4" userLabel="Temperature Stack View">
                                         <rect key="frame" x="0.0" y="510" width="375" height="85"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Temperature" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfq-io-34n" userLabel="Temperature">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfq-io-34n" userLabel="Temperature">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="85"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="xXf-K9-vEH"/>
@@ -617,7 +610,7 @@
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EVV-hA-b0x" userLabel="Temperature Graph View" customClass="APLGraphView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVV-hA-b0x" userLabel="Temperature Graph View" customClass="APLGraphView">
                                                 <rect key="frame" x="30" y="0.0" width="345" height="85"/>
                                                 <color key="backgroundColor" red="0.32104146180281368" green="0.6824769009792665" blue="0.81946243523316065" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
@@ -640,30 +633,25 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.95479661491637058" green="0.85444498507727062" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WrY-LS-h3B" firstAttribute="centerX" secondItem="3Z6-NZ-Cg6" secondAttribute="centerX" id="Gnu-Av-FgH"/>
+                            <constraint firstItem="WrY-LS-h3B" firstAttribute="centerY" secondItem="3Z6-NZ-Cg6" secondAttribute="centerY" id="azs-4B-Ogy"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TSk-wT-8TA"/>
+                    <connections>
+                        <outlet property="AccelerometerGraphView" destination="rO1-sB-0wa" id="nwe-On-ST4"/>
+                        <outlet property="CryingGraphView" destination="x3J-AO-DDj" id="vgJ-PT-cbV"/>
+                        <outlet property="FeedingGraphView" destination="Sdp-uY-zkn" id="z6S-Oa-emL"/>
+                        <outlet property="GyroscopeGraphView" destination="KMP-Ju-T3J" id="GFo-6e-u8G"/>
+                        <outlet property="HumidityGraphView" destination="1Fz-Pg-fUI" id="KFb-ti-TEV"/>
+                        <outlet property="LightGraphView" destination="dXl-Rg-wWP" id="joT-Lt-Nei"/>
+                        <outlet property="TemperatureGraphView" destination="EVV-hA-b0x" id="I1w-lz-HXB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BNi-fH-PGE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1561" y="1253"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="A7H-tH-3Pv">
-            <objects>
-                <viewController id="uJY-tE-95F" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gEU-Sa-GUq"/>
-                        <viewControllerLayoutGuide type="bottom" id="upJ-2D-avv"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="mHY-Zc-0Vw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BEi-5Y-CQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2055" y="1258"/>
         </scene>
     </scenes>
     <resources>
