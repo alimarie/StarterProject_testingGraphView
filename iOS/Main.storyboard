@@ -125,7 +125,7 @@
                                 <rect key="frame" x="0.0" y="24" width="375" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZEW-wz-LCx" id="hRw-ER-YXT">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="85"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="84"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MetaWear" translatesAutoresizingMaskIntoConstraints="NO" id="nSe-fd-aTp">
@@ -163,7 +163,7 @@
                                 <rect key="frame" x="0.0" y="109" width="375" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nbx-hf-jjn" id="Cji-TJ-CG1">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="85"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="84"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a device to get started!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlG-en-AkV">
@@ -206,7 +206,7 @@
         <!--MetaTrackr Device-->
         <scene sceneID="RDV-ps-hQO">
             <objects>
-                <viewController id="XFA-76-WTO" userLabel="MetaTrackr Device" customClass="DeviceViewController" customModule="StarterProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DeviceController" id="XFA-76-WTO" userLabel="MetaTrackr Device" customClass="DeviceViewController" customModule="StarterProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HeQ-IP-C5H"/>
                         <viewControllerLayoutGuide type="bottom" id="lSt-61-UdU"/>
@@ -341,7 +341,7 @@
                                                         <state key="normal" title="Stop Monitoring"/>
                                                         <connections>
                                                             <action selector="StopMonitoring:" destination="XFA-76-WTO" eventType="touchUpInside" id="KHJ-NV-1dp"/>
-                                                            <segue destination="bLy-Zc-Ovh" kind="push" id="Ofc-wi-BDw"/>
+                                                            <segue destination="bLy-Zc-Ovh" kind="push" identifier="graphSegue" id="J6l-WR-Wdq"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -471,10 +471,10 @@
             </objects>
             <point key="canvasLocation" x="1038" y="-434"/>
         </scene>
-        <!--View Controller-->
+        <!--Graph Controller-->
         <scene sceneID="Qpg-Q4-BC1">
             <objects>
-                <viewController id="bLy-Zc-Ovh" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GraphController" id="bLy-Zc-Ovh" customClass="GraphController" customModule="StarterProject" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rqc-pm-Nxb"/>
                         <viewControllerLayoutGuide type="bottom" id="Tev-H0-Ckp"/>
@@ -646,6 +646,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BNi-fH-PGE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1561" y="1253"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="A7H-tH-3Pv">
+            <objects>
+                <viewController id="uJY-tE-95F" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gEU-Sa-GUq"/>
+                        <viewControllerLayoutGuide type="bottom" id="upJ-2D-avv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mHY-Zc-0Vw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BEi-5Y-CQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2055" y="1258"/>
         </scene>
     </scenes>
     <resources>

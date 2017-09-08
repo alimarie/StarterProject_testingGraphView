@@ -32,7 +32,6 @@ class DeviceViewController: UIViewController {
     
     // GRAPH VIEWS
     @IBOutlet weak var AccelerometerGraphView: APLGraphView!
-    @IBOutlet weak var GyroscopeGraphView: APLGraphView!
     
     // DEVICES
     var device: MBLMetaWear!
@@ -322,6 +321,17 @@ class DeviceViewController: UIViewController {
     }
     
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "graphSegue") {
+            if let DVC = segue.destination as? GraphController{
+                DVC.accelerometerArray = accelerometerBMI160Data
+            } else {
+                print("Data NOT Passed! destination vc is not set to firstVC")
+            }
+            print("id matched")
+        } else { print("Id doesnt match with Storyboard segue Id") }
+        
+    }
     
 }

@@ -28,6 +28,7 @@
 		AF1702FF1F57F4C600AB7DA0 /* ScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1702FE1F57F4C600AB7DA0 /* ScaleViewController.swift */; };
 		AFC47C8E1F55AD3E00E18A1A /* AccelerometerFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC47C8B1F55AD3E00E18A1A /* AccelerometerFilter.m */; };
 		AFC47C8F1F55AD3E00E18A1A /* APLGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC47C8D1F55AD3E00E18A1A /* APLGraphView.m */; };
+		AFCCD9F01F62D34F00941501 /* GraphController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCCD9EF1F62D34F00941501 /* GraphController.swift */; };
 		BC31A9FBED54BD932058B42E /* Pods_Starter_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B810285FECA2430C1FAEF3F /* Pods_Starter_tvOS.framework */; };
 		E829A8A800A7AFC5A4C5DA7A /* Pods_Starter_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C3D37560DD979815A53DF1B /* Pods_Starter_iOS.framework */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,7 @@
 		AFC47C8B1F55AD3E00E18A1A /* AccelerometerFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerometerFilter.m; sourceTree = "<group>"; };
 		AFC47C8C1F55AD3E00E18A1A /* APLGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLGraphView.h; sourceTree = "<group>"; };
 		AFC47C8D1F55AD3E00E18A1A /* APLGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLGraphView.m; sourceTree = "<group>"; };
+		AFCCD9EF1F62D34F00941501 /* GraphController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphController.swift; sourceTree = "<group>"; };
 		BC9E019C266AD9823B5E877D /* Pods-Starter-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starter-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Starter-tvOS/Pods-Starter-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		F3CC4717E50B1C51696459B4 /* Pods_Starter_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Starter_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -124,10 +126,11 @@
 			isa = PBXGroup;
 			children = (
 				402973801DB839EA00EC8C32 /* AppDelegate.swift */,
-				402973811DB839EA00EC8C32 /* DeviceViewController.swift */,
-				402973821DB839EA00EC8C32 /* MainTableViewController.swift */,
 				402973271DB81F5A00EC8C32 /* GameScene.swift */,
+				402973821DB839EA00EC8C32 /* MainTableViewController.swift */,
 				4029737D1DB839AF00EC8C32 /* ScanTableViewController.swift */,
+				402973811DB839EA00EC8C32 /* DeviceViewController.swift */,
+				AFCCD9EF1F62D34F00941501 /* GraphController.swift */,
 				AF1702FE1F57F4C600AB7DA0 /* ScaleViewController.swift */,
 				AFC47C891F55AD3D00E18A1A /* iOS-Bridging-Header.h */,
 				402973281DB81F5A00EC8C32 /* Assets.xcassets */,
@@ -490,6 +493,7 @@
 				402973841DB839EA00EC8C32 /* DeviceViewController.swift in Sources */,
 				AFC47C8E1F55AD3E00E18A1A /* AccelerometerFilter.m in Sources */,
 				AFC47C8F1F55AD3E00E18A1A /* APLGraphView.m in Sources */,
+				AFCCD9F01F62D34F00941501 /* GraphController.swift in Sources */,
 				AF1702FF1F57F4C600AB7DA0 /* ScaleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
