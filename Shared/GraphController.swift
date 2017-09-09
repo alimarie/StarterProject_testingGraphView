@@ -40,14 +40,22 @@ class GraphController: UIViewController {
                 self.AccelerometerGraphView.addX(obj.x, y: obj.y, z: obj.z)
             }
             for obj in self.gyroscopeArray {
-                self.GyroscopeGraphView.addX(obj.x, y: obj.y, z: obj.z)
+                self.GyroscopeGraphView.addX(obj.z, y: obj.z, z: obj.z)
             }
-            
-            print("LIGHT: ", lightArray)
-            print("HUMIDITY: ", humidityArray)
-            print("TEMPERATURE: ", temperatureArray)
-            
+            for obj in self.lightArray {
+                let val = Double(obj.value)
+                self.LightGraphView.addX(val, y: val, z: val)
+            }
+            for obj in self.humidityArray {
+                let val = Double(obj.value)
+                self.HumidityGraphView.addX(val, y: val, z: val)
+            }
+            for obj in self.temperatureArray {
+                let val = Double(obj.value)
+                self.TemperatureGraphView.addX(val, y: val, z: val)
+            }
         }
+            
         else{
             print("empty still")
         }

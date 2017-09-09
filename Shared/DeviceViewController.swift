@@ -119,7 +119,6 @@ class DeviceViewController: UIViewController {
         
         let gyroBMI160 = self.device.gyro as! MBLGyroBMI160
         gyroBMI160.fullScaleRange = .range500
-        //self.gyroBMI160Graph.fullScale = 4
         gyroBMI160.sampleFrequency = 50
         
     }
