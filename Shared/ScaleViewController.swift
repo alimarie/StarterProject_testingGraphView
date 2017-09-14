@@ -26,6 +26,21 @@ class ScaleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphe
     var mainPeripheral:CBPeripheral? = nil
     var mainCharacteristic:CBCharacteristic? = nil
     
+    // daily intake variables
+    var dailyTotal = 0
+    var feedingData = [[(NSDate, Int)]]()     // [date] [measurement]
+    
+    // individual feeding variables
+    var feedingTotal = 0
+    var preFeeding = 0
+    var postFeeding = 0
+    
+    // current measurement variables
+    var heldWeight = 0
+    var hw1 = 1
+    var hw2 = 2
+    var hw3 = 3
+    
     let BLEService = "1804"
     let BLECharacteristic = "2A07"
     
@@ -79,18 +94,14 @@ class ScaleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphe
     }
     
     
-    // MARK: - CBCentralManagerDelegate Methods
+    // MARK: - CBCentralManagerDelegate Methods 
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         if(!peripherals.contains(peripheral)) {
             peripherals.append(peripheral)
         }
         
-      //  print("did discover peripheral ", peripheral.name!)
-        //self.tableView.reloadData()
-        
         manager?.connect(peripheral, options: nil)
-      //   print("did connect peripheral ", peripheral.name!)
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
@@ -103,12 +114,7 @@ class ScaleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphe
         //set the manager's delegate view to parent so it can call relevant disconnect methods
         manager?.delegate = self
         customiseNavigationBar()
-        
-/*        if let navController = self.navigationController {
-            navController.popViewController(animated: true)
-        }
-        
-*/
+
         print("Connected to " +  peripheral.name!)
     }
     
@@ -132,7 +138,7 @@ class ScaleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphe
         
         for service in peripheral.services! {
             
-            print("Service found with UUID: " + service.uuid.uuidString)
+            //print("Service found with UUID: " + service.uuid.uuidString)
             
             if (service.uuid.uuidString == "1804") {
                 peripheral.discoverCharacteristics(nil, for: service)
@@ -148,27 +154,24 @@ class ScaleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphe
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         
         if (service.uuid.uuidString == "0000FA00-494C-4F47-4943-544543480000") {
-            print("Found 0000FA00-494C-4F47-4943-544543480000 service!!")
             for characteristic in service.characteristics! {
                 peripheral.setNotifyValue(true, for: characteristic)
                 if (characteristic.uuid.uuidString == "0000FA01-494C-4F47-4943-544543480000") {
                     peripheral.readValue(for: characteristic)
-                    print("Found Characteristic 1")
+                    //print("Found Characteristic 1")
                 }
                 if (characteristic.uuid.uuidString == "0000FA02-494C-4F47-4943-544543480000") {
                     peripheral.readValue(for: characteristic)
-                    print("Found Characteristic 2")
+                    //print("Found Characteristic 2")
                 }
                 if (characteristic.uuid.uuidString == "0000FA03-494C-4F47-4943-544543480000") {
                     peripheral.readValue(for: characteristic)
-                    print("Found Characteristic 3")
+                    //print("Found Characteristic 3")
                 }
                 
             }
             
         }
-        
-        
         
         if (service.uuid.uuidString == BLEService) {
             
@@ -199,8 +202,23 @@ class ScaleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphe
             
             if(characteristic.value != nil){
                 let stringValue = String(data: characteristic.value!, encoding: String.Encoding.utf8)!
-                print("1 - uft8: ", stringValue)
+                
+                // cleaning up value to grab only the weight characters
+                var shortStringValue = stringValue.characters.suffix(4)
+                shortStringValue.removeLast()
+                
+                print("stringValue: ", stringValue)
+                print("shortStringValue: ", String(shortStringValue))
+                print("heldWeight: ", String(describing: heldWeight))
+                
+                let measurement = Int(String(shortStringValue))
+                
+                if(holdMeasurement(value: measurement!)) {
+                    heldWeight = measurement!
+                }
+                
             }
+            
         }
         
     }
@@ -230,5 +248,56 @@ class ScaleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphe
         
     }
     
+    
+    // ********** MEASUREMENT METHODS **********
+    func holdMeasurement(value: Int) -> Bool {
+        
+        hw3 = hw2
+        hw2 = hw1
+        hw1 = value
+        
+        if(hw1 == hw2 && hw2 == hw3){
+            return true
+        } else {
+            return false
+        }
+    
+    }
+    
+    func getCurrentMeasurement() {
+        
+    
+    }
+    
+    func calculateCurrentFeedingTotal() -> Int {
+        
+        let feeding = preFeeding - postFeeding
+        if (feeding > 0){
+            preFeeding = -1
+            postFeeding = -1
+            print("Total amount in this feeding: ", String(feedingTotal))
+            return feeding
+        }
+        else {
+            print("Incorrect measurement.")
+            return 0
+        }
+        
+    }
+
+    // 
+    //      updateDailyFeedingTotal
+    //
+    //      Keeps track of daily food intake.  Checks the current time, and if the date
+    //      does not match the last feeding, saves value into new cell in array.
+    //
+    func updateDailyFeedingTotal( lastFeeding: Int ) {
+        dailyTotal += lastFeeding
+        
+        feedingData.append([(Date() as NSDate, dailyTotal)])
+        
+        print("Total Daily Food Intake: ", feedingData.last!)
+    }
+
 }
 

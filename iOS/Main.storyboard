@@ -14,7 +14,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mar-3Z-Bv2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dug-M8-x7x">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Dug-M8-x7x">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -125,7 +125,7 @@
                                 <rect key="frame" x="0.0" y="24" width="375" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZEW-wz-LCx" id="hRw-ER-YXT">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="84"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="85"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MetaWear" translatesAutoresizingMaskIntoConstraints="NO" id="nSe-fd-aTp">
@@ -163,7 +163,7 @@
                                 <rect key="frame" x="0.0" y="109" width="375" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nbx-hf-jjn" id="Cji-TJ-CG1">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="84"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="85"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a device to get started!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlG-en-AkV">
@@ -417,36 +417,7 @@
                     <view key="view" contentMode="scaleToFill" id="Ib1-sh-ECe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Recieved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5J-ov-Q0p">
-                                <rect key="frame" x="116" y="187" width="144" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJf-QY-dad">
-                                <rect key="frame" x="108" y="239" width="158" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eO-hz-kI0">
-                                <rect key="frame" x="120" y="116" width="136" height="30"/>
-                                <state key="normal" title="Send &quot;Hello World!&quot;"/>
-                                <connections>
-                                    <action selector="sendButtonPressed:" destination="TD8-z8-gd4" eventType="touchUpInside" id="EIA-yp-eaV"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="K5J-ov-Q0p" firstAttribute="top" secondItem="jnU-we-a9O" secondAttribute="bottom" constant="123" id="09n-ou-4f1"/>
-                            <constraint firstItem="6eO-hz-kI0" firstAttribute="centerX" secondItem="Ib1-sh-ECe" secondAttribute="centerX" id="CKH-42-8Lr"/>
-                            <constraint firstItem="6eO-hz-kI0" firstAttribute="top" secondItem="jnU-we-a9O" secondAttribute="bottom" constant="52" id="MNE-gl-Alf"/>
-                            <constraint firstItem="K5J-ov-Q0p" firstAttribute="centerX" secondItem="Ib1-sh-ECe" secondAttribute="centerX" id="ZCN-We-LAq"/>
-                            <constraint firstItem="bJf-QY-dad" firstAttribute="top" secondItem="jnU-we-a9O" secondAttribute="bottom" constant="175" id="eGI-JA-dyt"/>
-                            <constraint firstItem="bJf-QY-dad" firstAttribute="width" secondItem="Ib1-sh-ECe" secondAttribute="width" id="siz-Qc-Rgt"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Hfp-NR-os6">
                         <barButtonItem key="leftBarButtonItem" title="Return" id="yaq-WF-bCT">
@@ -456,7 +427,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="recievedMessageText" destination="bJf-QY-dad" id="JEC-E7-UkI"/>
                         <outlet property="view" destination="Ib1-sh-ECe" id="JVW-56-Vql"/>
                     </connections>
                 </viewController>
