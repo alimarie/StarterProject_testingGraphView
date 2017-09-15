@@ -29,11 +29,13 @@ class ScaleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphe
     // daily intake variables
     var dailyTotal = 0
     var feedingData = [[(NSDate, Int)]]()     // [date] [measurement]
+    @IBOutlet weak var dailyTotalLabel: UILabel!
     
     // individual feeding variables
     var feedingTotal = 0
     var preFeeding = 0
     var postFeeding = 0
+    @IBOutlet weak var lastFeedingLabel: UILabel!
     
     // current measurement variables
     var heldWeight = 0
@@ -204,7 +206,7 @@ class ScaleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphe
                 let stringValue = String(data: characteristic.value!, encoding: String.Encoding.utf8)!
                 
                 // cleaning up value to grab only the weight characters
-                var shortStringValue = stringValue.characters.suffix(4)
+                var shortStringValue = stringValue.characters.suffix(6)
                 shortStringValue.removeLast()
                 
                 print("stringValue: ", stringValue)
@@ -250,6 +252,13 @@ class ScaleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphe
     
     
     // ********** MEASUREMENT METHODS **********
+    
+    /*
+     *      holdMeasurement
+     *
+     *      Reads the current value output by the scale and returns true once the
+     *      value is "held" (aka. the value no longer changes)
+     */
     func holdMeasurement(value: Int) -> Bool {
         
         hw3 = hw2
@@ -264,14 +273,29 @@ class ScaleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphe
     
     }
     
-    func getCurrentMeasurement() {
-        
     
+    /*
+     *      getCurrentMeasurement
+     */
+    func getCurrentMeasurement() -> Int {
+        
+        // wait 30 seconds to make sure value held**
+        
+        // grab current held weight
+        return heldWeight
+        
     }
     
+    
+    /*
+     *      calculateCurrentFeedingTotal
+     *
+     *      compares values before and after feeding to calculate the total food intake.  
+     *      If a valid measurement is taken, preFeeding and postFeeding values are reset.
+     */
     func calculateCurrentFeedingTotal() -> Int {
         
-        let feeding = preFeeding - postFeeding
+        let feeding = postFeeding - preFeeding
         if (feeding > 0){
             preFeeding = -1
             postFeeding = -1
@@ -285,19 +309,44 @@ class ScaleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphe
         
     }
 
-    // 
-    //      updateDailyFeedingTotal
-    //
-    //      Keeps track of daily food intake.  Checks the current time, and if the date
-    //      does not match the last feeding, saves value into new cell in array.
-    //
-    func updateDailyFeedingTotal( lastFeeding: Int ) {
+    /*
+     *      calculateDailyFeedingTotal
+     *
+     *      Keeps track of daily food intake.  Checks the current time, and if the date
+     *      does not match the last feeding, saves value into new cell in array.
+    */
+    func calculateDailyFeedingTotal( lastFeeding: Int ) {
         dailyTotal += lastFeeding
         
         feedingData.append([(Date() as NSDate, dailyTotal)])
         
         print("Total Daily Food Intake: ", feedingData.last!)
+        
     }
 
+    @IBAction func StartFeeding(_ sender: Any) {
+        
+        var value = getCurrentMeasurement()
+        value = preFeeding
+        
+    }
+    
+    @IBAction func StopFeeding(_ sender: Any) {
+        
+        // get post-feeding measurement
+        postFeeding = getCurrentMeasurement()
+        
+        // calculate the last feeding
+        feedingTotal = calculateCurrentFeedingTotal()
+        self.lastFeedingLabel.text = String(feedingTotal)
+        
+        // calculate the daily total 
+        calculateDailyFeedingTotal(lastFeeding: feedingTotal)
+        self.dailyTotalLabel.text = String(dailyTotal)
+        
+        print("check labels for update")
+    }
+    
+    
 }
 
